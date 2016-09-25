@@ -4,25 +4,25 @@ var Search = require('./Search');
 var PaymentRequest = require('./PaymentRequest');
 var BitcoinPaymentURLPanel = require('./BitcoinPaymentURLPanel');
 var BitcoinQRCodePanel = require('./BitcoinQRCodePanel');
-
+var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
 
 var App = React.createClass({
 
 	getInitialState(){
 
 		// Extract the favorite locations from local storage
-
-		var favorites = [];
-
-		if(localStorage.favorites){
-			favorites = JSON.parse(localStorage.favorites);
-		}
+		window.location.search.replace("?", "");
 
 		// Nobody would get mad if we center it on Paris by default
 
 		return {
 			currentRequest: null,
 		};
+	},
+
+	componentWillMount() {
+		var value = decodeURIComponent(window.location.search.replace("?", ""));
+		this.setBitcoinPaymentRequest(value);
 	},
 
 	fromBitcoinPaymentRequest(url) {
@@ -50,15 +50,17 @@ var App = React.createClass({
 			<div>
 				<h1>Viabitco.in</h1>
 
-				<Search onSearch={this.setBitcoinPaymentRequest} />
-
+				<section>
+					<a href='bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr' > bitcoin link</a>
+				</section>
+				
 				<PaymentRequest request={this.state.currentRequest} />
 
 				<BitcoinPaymentURLPanel request={this.state.currentRequest} />
 
 				<BitcoinQRCodePanel request={this.state.currentRequest} />
 
-
+				<BitcoinProtocolHandlerPanel />
 
 			</div>
 
