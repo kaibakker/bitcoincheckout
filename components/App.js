@@ -22,7 +22,9 @@ var App = React.createClass({
 
 	componentWillMount() {
 		var value = decodeURIComponent(window.location.search.replace("?", ""));
-		this.setBitcoinPaymentRequest(value);
+		if(value != "") {
+			this.setBitcoinPaymentRequest(value);
+		}
 	},
 
 	fromBitcoinPaymentRequest(url) {
@@ -53,7 +55,7 @@ var App = React.createClass({
 				<section>
 					<a href='bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr' > bitcoin link</a>
 				</section>
-				
+
 				<PaymentRequest request={this.state.currentRequest} />
 
 				<BitcoinPaymentURLPanel request={this.state.currentRequest} />

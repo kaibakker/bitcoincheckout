@@ -1,12 +1,10 @@
-
-
 var React = require('react');
 
 var BitcoinProtocolHandlerPanel = React.createClass({
   registerProtocolHandler() {
     navigator.registerProtocolHandler("bitcoin",
-																	"https://kaibakker.github.io/viabitcoin/index.html?%s",
-																	"Bitcoin handler");
+      "https://kaibakker.github.io/viabitcoin/index.html?%s",
+      "Bitcoin handler");
   },
   render(){
 		return (
