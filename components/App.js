@@ -5,6 +5,7 @@ var PaymentRequest = require('./PaymentRequest');
 var BitcoinPaymentURLPanel = require('./BitcoinPaymentURLPanel');
 var BitcoinQRCodePanel = require('./BitcoinQRCodePanel');
 var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
+var ShapeShiftPanel = require('./ShapeShiftPanel');
 
 var App = React.createClass({
 
@@ -62,7 +63,9 @@ var App = React.createClass({
 
 				<BitcoinQRCodePanel request={this.state.currentRequest} />
 
-				<BitcoinProtocolHandlerPanel />
+				<BitcoinProtocolHandlerPanel request={this.state.currentRequest} />
+
+				<ShapeShiftPanel request={this.state.currentRequest} />
 
 			</div>
 
