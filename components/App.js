@@ -14,9 +14,14 @@ var App = React.createClass({
 		// Extract the favorite locations from local storage
 		window.location.search.replace("?", "");
 
-		// Nobody would get mad if we center it on Paris by default
+		transactions = []
+
+		if(localStorage.transactions){
+			transactions = JSON.parse(localStorage.transactions);
+		}
 
 		return {
+			transactions: transactions,
 			currentRequest: null,
 		};
 	},
@@ -26,6 +31,18 @@ var App = React.createClass({
 		if(value != "") {
 			this.setBitcoinPaymentRequest(value);
 		}
+	},
+
+	addToTransactions(transaction){
+		var transactions = this.state.transactions;
+
+		transactions.push(transaction);
+
+		this.setState({
+			transactions: transactions
+		});
+
+		localStorage.transactions = JSON.stringify(transactions);
 	},
 
 	fromBitcoinPaymentRequest(url) {
@@ -43,7 +60,9 @@ var App = React.createClass({
 
 
 	setBitcoinPaymentRequest(uri){
-		this.setState( { currentRequest: this.fromBitcoinPaymentRequest(uri) } )
+		var request = this.fromBitcoinPaymentRequest(uri)
+		this.addToTransactions(request)
+		this.setState( { currentRequest: request } )
 	},
 
 	render(){
@@ -66,7 +85,9 @@ var App = React.createClass({
 				<BitcoinProtocolHandlerPanel request={this.state.currentRequest} />
 
 				<ShapeShiftPanel request={this.state.currentRequest} />
-
+				{ transactions.map(function(transaction) {
+					return <PaymentRequest request={transaction} />
+				}) }
 			</div>
 
 		);

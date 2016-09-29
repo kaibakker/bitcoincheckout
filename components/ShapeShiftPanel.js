@@ -11,9 +11,9 @@ var ShapeShiftPanel = React.createClass({
     var myInit = {
       method: 'POST',
       body: JSON.stringify({
-    		withdrawalAmount: this.props.request['amount'],
-        amount: this.props.request['amount'],
-    		withdrawal: this.props.request['address'],
+    		withdrawalAmount: this.props.request.amount,
+        amount: this.props.request.amount,
+    		withdrawal: this.props.request.amount,
         pair: 'ltc_btc'
     	}),
       headers: {
@@ -23,13 +23,11 @@ var ShapeShiftPanel = React.createClass({
       mode: 'cors',
       cache: 'default'
     };
-    console.log(myInit);
 
     fetch('https://cors.shapeshift.io/sendamount', myInit)
     .then(function(response) {
       if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
+        console.log('Looks like there was a problem. Status Code: ' + response.status);
         console.log(response)
         return;
       }
