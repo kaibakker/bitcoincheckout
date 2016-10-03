@@ -6,6 +6,7 @@ var BitcoinPaymentURLPanel = require('./BitcoinPaymentURLPanel');
 var BitcoinQRCodePanel = require('./BitcoinQRCodePanel');
 var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
 var ShapeShiftPanel = require('./ShapeShiftPanel');
+var CoinbasePanel = require('./CoinbasePanel');
 
 var App = React.createClass({
 
@@ -58,11 +59,15 @@ var App = React.createClass({
 	  return request;
 	},
 
+	setCurrentRequest(request) {
+		this.setState( { currentRequest: request } )
+	},
+
 
 	setBitcoinPaymentRequest(uri){
 		var request = this.fromBitcoinPaymentRequest(uri)
 		this.addToTransactions(request)
-		this.setState( { currentRequest: request } )
+		this.setCurrentRequest(request)
 	},
 
 	render(){
@@ -85,8 +90,11 @@ var App = React.createClass({
 				<BitcoinProtocolHandlerPanel request={this.state.currentRequest} />
 
 				<ShapeShiftPanel request={this.state.currentRequest} />
+
+				<CoinbasePanel request={this.state.currentRequest}/>
+
 				{ transactions.map(function(transaction) {
-					return <PaymentRequest request={transaction} />
+					return <PaymentRequest app={this} request={transaction} />
 				}) }
 			</div>
 
