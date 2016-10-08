@@ -8,21 +8,12 @@ var PaymentOptions = require('./PaymentOptions');
 var App = React.createClass({
 
 	getInitialState(){
-
-		// Extract the favorite locations from local storage
-		// window.location.search.replace("?", "");
-		//
-		// transactions = []
-		//
-		// if(localStorage.transactions){
-		// 	transactions = JSON.parse(localStorage.transactions);
-		// }
-
 		return {
 			request: {
-				address: '175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W',
-				amount: 20.3,
-				label: 'Reddit gold 1 year'
+				address: '1FbcR3rv6xsoQSFgrvZBe1xRg7fVU8LdHr',
+				amount: 0.3,
+				label: 'Reddit gold 1 year',
+				bitcoinURI: "bitcoin:1FbcR3rv6xsoQSFgrvZBe1xRg7fVU8LdHr"
 			},
 		};
 	},
@@ -71,25 +62,21 @@ var App = React.createClass({
 	},
 
 	render(){
-
 		return (
+			<div className="card">
+			  <div className="card-block">
+			    <h4 className="card-title">Reddit.com</h4>
+			    <p className="card-text"></p>
+			  </div>
 
-			<section className="col-xs-12 col-md-6 col-md-offset-3 current-location">
-				<h1>Reddit.com</h1>
-
-				// <row>
-				// 	<a href='bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr' > bitcoin link</a>
-				// </row>
-				<hr />
-				<PaymentRequest request={this.state.request} />
-				<hr />
-
-				<PaymentOptions request={this.state.request} />
+			  <div className="list-group list-group-flush">
+					<PaymentRequest request={this.state.request} />
 
 
-			</section>
-
-		);
+					<PaymentOptions request={this.state.request} />
+			  </div>
+			</div>
+		)
 	}
 
 });

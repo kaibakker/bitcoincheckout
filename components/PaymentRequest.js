@@ -5,17 +5,17 @@ var PaymentRequest = React.createClass({
 		this.props.app.setRequest(this.props.request)
 	},
 	render(){
-		if(this.props.request != null) {
-			return (
-				<div className='row'>
-					<h4>{this.props.request['label']}</h4>
-					<span className="pull-right">€{this.props.request['amount']}</span>
-					<a onClick={this.select}>select</a>
+		return (
+			<div className="list-group-item">
+				<div className="row">
+					<div className="col-xs-9">{this.props.request.label}</div>
+					<div className="col-xs-3 text-right">{(this.props.request.amount*550.0).toFixed(2)} EUR</div>
+
+					<div className="col-xs-9">one year of reddit gold</div>
+					<div className="col-xs-3 text-right">{this.props.request.amount} BTC</div>
 				</div>
-			);
-		} else {
-			return <div></div>
-		}
+			</div>
+		);
 	}
 });
 

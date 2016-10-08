@@ -3,38 +3,36 @@
 
 var React = require('react');
 var BitcoinPaymentURLPanel = require('./BitcoinPaymentURLPanel');
-var BitcoinQRCodePanel = require('./BitcoinQRCodePanel');
+var BitcoinPanel = require('./BitcoinPanel');
 var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
 var ShapeShiftPanel = require('./ShapeShiftPanel');
-var CoinbasePanel = require('./CoinbasePanel');
+var CoinbasePanel = require('./Coinbase/CoinbasePanel');
 
 var PaymentOptions = React.createClass({
   getInitialState() {
-    return { option: null}
+    return { panel: null }
+  },
+  setPanel(panel) {
+    this.setState({ panel: panel })
   },
   render() {
-		return (
-      <div className="list-group">
-        <a href="#" className="list-group-item">Choose your payment type</a>
-        <a href="#" className="list-group-item">Bitcoin Address</a>
-        <a href="#" className="list-group-item">Coinbase</a>
-        <a href="#" className="list-group-item">Copay</a>
-        <a href="#" className="list-group-item">Blockchain.info</a>
-        <a href="#" className="list-group-item">Shapeshift.io</a>
-        <a href="#" className="list-group-item">iDeal</a>
-      </div>
-      /*<div>
-
-
-        <BitcoinQRCodePanel request={this.props.request} />
-
-        <BitcoinProtocolHandlerPanel request={this.props.request} />
-
-        <ShapeShiftPanel request={this.props.request} />
-
-        <CoinbasePanel request={this.props.request}/>
-      </div>*/
-		);
+    if(this.state.panel != null) {
+      return (
+        <div>
+          <a className="list-group-item" onClick={() => this.setPanel(null)}>Choose other payment method</a>
+          {this.state.panel({ request: this.props.request })}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <div className="list-group-item">Choose your payment type</div>
+          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(BitcoinPanel))}>Bitcoin Address</a>
+          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(CoinbasePanel))}>Coinbase</a>
+          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(ShapeShiftPanel))}>ShapeShift Litecoin</a>
+        </div>
+      )
+    }
 	}
 });
 

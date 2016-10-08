@@ -12,8 +12,7 @@ var ShapeShiftPanel = React.createClass({
       method: 'POST',
       body: JSON.stringify({
     		withdrawalAmount: this.props.request.amount,
-        amount: this.props.request.amount,
-    		withdrawal: this.props.request.amount,
+    		withdrawal: this.props.request.address,
         pair: 'ltc_btc'
     	}),
       headers: {
@@ -23,6 +22,8 @@ var ShapeShiftPanel = React.createClass({
       mode: 'cors',
       cache: 'default'
     };
+    
+    console.log(myInit);
 
     fetch('https://cors.shapeshift.io/sendamount', myInit)
     .then(function(response) {
@@ -37,27 +38,18 @@ var ShapeShiftPanel = React.createClass({
         console.log("Response shapeshift")
         console.log(data);
 
+        var url = 'https://shapeshift.io/#/status/' + data.success.orderId;
 
-        var url = 'https://shapeshift.io/#/status/' + data.success.orderId
-
-        window.location.replace(url)
-
+        window.location.href = url;
       });
     })
-
-
-    this.props.updateTransaction(this.props.request, { type: "ShapeShift" })
   },
   render(){
-		if(this.props.request != null) {
-			return (
-				<div className="row">
-          <a onClick={this.uri}>Shapeshift link</a>
-				</div>
-			);
-		} else {
-			return <div></div>
-		}
+		return (
+			<div>
+        <a onClick={this.uri} className="btn btn-primary">Shapeshift link</a>
+			</div>
+		);
 	}
 });
 

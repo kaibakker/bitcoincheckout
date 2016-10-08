@@ -10,15 +10,11 @@ var BitcoinPaymentURLPanel = React.createClass({
          + "?address=" + this.props.request['address']
   },
   render(){
-		if(this.props.request != null) {
-			return (
-				<div className="row">
-          <a href={this.handler_url()}>Pay with coinbase</a>
-				</div>
-			);
-		} else {
-			return <div></div>
-		}
+		return (
+			<div>
+        <a href={this.handler_url()} className="btn btn-primary">Pay with coinbase</a>
+			</div>
+		);
 	}
 });
 

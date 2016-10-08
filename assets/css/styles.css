@@ -3,6 +3,17 @@
 	margin: 20px auto;
 }
 
+/* bootstrap changes */
+/*
+.list-group {
+	padding: 0;
+}*/
+.list-group-item {
+	border-left: none;
+	border-right: none;
+}
+/* end */
+
 body {
 	background-color: #eee;
 }
@@ -89,19 +100,7 @@ h1 {
 	margin: 0 auto;
 }
 
-.list-group {
-	padding: 0 15px;
-	margin-top: 50px;
-}
 
-.list-group-item {
-	position: relative;
-	padding: 10px 20px;
-}
-
-a.list-group-item {
-	cursor: pointer;
-}
 
 a.list-group-item:hover {
 	background-color: #F7FBFF;
