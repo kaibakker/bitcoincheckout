@@ -51,9 +51,9 @@ var ShapeShiftPanel = React.createClass({
   render(){
 		if(this.props.request != null) {
 			return (
-				<section className="col-xs-12 col-md-6 col-md-offset-3 current-location">
+				<div className="row">
           <a onClick={this.uri}>Shapeshift link</a>
-				</section>
+				</div>
 			);
 		} else {
 			return <div></div>

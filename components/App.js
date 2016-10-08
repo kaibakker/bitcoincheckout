@@ -1,29 +1,29 @@
 var React = require('react');
 
-var Search = require('./Search');
+
 var PaymentRequest = require('./PaymentRequest');
-var BitcoinPaymentURLPanel = require('./BitcoinPaymentURLPanel');
-var BitcoinQRCodePanel = require('./BitcoinQRCodePanel');
-var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
-var ShapeShiftPanel = require('./ShapeShiftPanel');
-var CoinbasePanel = require('./CoinbasePanel');
+
+var PaymentOptions = require('./PaymentOptions');
 
 var App = React.createClass({
 
 	getInitialState(){
 
 		// Extract the favorite locations from local storage
-		window.location.search.replace("?", "");
-
-		transactions = []
-
-		if(localStorage.transactions){
-			transactions = JSON.parse(localStorage.transactions);
-		}
+		// window.location.search.replace("?", "");
+		//
+		// transactions = []
+		//
+		// if(localStorage.transactions){
+		// 	transactions = JSON.parse(localStorage.transactions);
+		// }
 
 		return {
-			transactions: transactions,
-			currentRequest: null,
+			request: {
+				address: '175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W',
+				amount: 20.3,
+				label: 'Reddit gold 1 year'
+			},
 		};
 	},
 
@@ -59,14 +59,14 @@ var App = React.createClass({
 	  return request;
 	},
 
-	setCurrentRequest(request) {
-		this.setState( { currentRequest: request } )
+	setRequest(request) {
+		this.setState( { request: request } )
 	},
 
 
 	setBitcoinPaymentRequest(uri){
 		var request = this.fromBitcoinPaymentRequest(uri)
-		this.addToTransactions(request)
+		// this.addToTransactions(request)
 		this.setCurrentRequest(request)
 	},
 
@@ -74,29 +74,20 @@ var App = React.createClass({
 
 		return (
 
-			<div>
-				<h1>Viabitco.in</h1>
+			<section className="col-xs-12 col-md-6 col-md-offset-3 current-location">
+				<h1>Reddit.com</h1>
 
-				<section>
-					<a href='bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr' > bitcoin link</a>
-				</section>
+				// <row>
+				// 	<a href='bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr' > bitcoin link</a>
+				// </row>
+				<hr />
+				<PaymentRequest request={this.state.request} />
+				<hr />
 
-				<PaymentRequest request={this.state.currentRequest} />
+				<PaymentOptions request={this.state.request} />
 
-				<BitcoinPaymentURLPanel request={this.state.currentRequest} />
 
-				<BitcoinQRCodePanel request={this.state.currentRequest} />
-
-				<BitcoinProtocolHandlerPanel request={this.state.currentRequest} />
-
-				<ShapeShiftPanel request={this.state.currentRequest} />
-
-				<CoinbasePanel request={this.state.currentRequest}/>
-
-				{ transactions.map(function(transaction) {
-					return <PaymentRequest app={this} request={transaction} />
-				}) }
-			</div>
+			</section>
 
 		);
 	}

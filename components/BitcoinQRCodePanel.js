@@ -9,9 +9,7 @@ var BitcoinQRCodePanel = React.createClass({
   render() {
 		if(this.props.request != null) {
 			return (
-				<section className="col-xs-12 col-md-6 col-md-offset-3 current-location">
-					<QRCode value={this.uri()} />
-				</section>
+				<QRCode value={this.uri()} />
 			)
 		} else {
 			return null

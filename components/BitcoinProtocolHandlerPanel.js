@@ -8,9 +8,9 @@ var BitcoinProtocolHandlerPanel = React.createClass({
   },
   render(){
 		return (
-			<section className="col-xs-12 col-md-6 col-md-offset-3 current-location">
+			<div className="row">
         <a onClick={this.registerProtocolHandler}>Register protocol handler</a>
-			</section>
+			</div>
 		);
 	}
 });

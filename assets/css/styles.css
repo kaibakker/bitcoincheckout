@@ -1,14 +1,14 @@
 .container {
 	max-width: 980px;
-	text-align: center;
 	margin: 20px auto;
 }
 
+body {
+	background-color: #eee;
+}
 
 section {
-  background: aliceblue;
-  border-radius: 10px;
-	padding: 15px;
+  background: white;
 }
 
 h1 {
