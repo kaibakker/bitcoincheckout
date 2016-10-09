@@ -65,7 +65,7 @@ var App = React.createClass({
 		return (
 			<div className="">
 
-		    <h4>Reddit.com</h4>
+		    <h4>viabitco.in</h4>
 
 			  <div className="row">
 					<PaymentRequest request={this.state.request} />
