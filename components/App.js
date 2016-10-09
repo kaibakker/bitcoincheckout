@@ -13,7 +13,7 @@ var App = React.createClass({
 				address: '1FbcR3rv6xsoQSFgrvZBe1xRg7fVU8LdHr',
 				amount: 0.3,
 				label: 'Reddit gold 1 year',
-				bitcoinURI: "bitcoin:1FbcR3rv6xsoQSFgrvZBe1xRg7fVU8LdHr"
+				bitcoinURI: "bitcoin:1FbcR3rv6xsoQSFgrvZBe1xRg7fVU8LdHr?amount=0.3&message=reddit"
 			},
 		};
 	},
@@ -63,15 +63,12 @@ var App = React.createClass({
 
 	render(){
 		return (
-			<div className="card">
-			  <div className="card-block">
-			    <h4 className="card-title">Reddit.com</h4>
-			    <p className="card-text"></p>
-			  </div>
+			<div className="">
 
-			  <div className="list-group list-group-flush">
+		    <h4>Reddit.com</h4>
+
+			  <div className="row">
 					<PaymentRequest request={this.state.request} />
-
 
 					<PaymentOptions request={this.state.request} />
 			  </div>

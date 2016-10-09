@@ -5,13 +5,15 @@ var QRCode = require('qrcode.react');
 var BitcoinPanel = React.createClass({
   render() {
 		return (
-      <div className="row">
-        <div className="col-md-3">
-          <QRCode value={this.props.request.bitcoinURI} />
+      <div className="">
+        <div className="col-md-12">
+					<div className="center-block">
+	          <QRCode value={this.props.request.bitcoinURI} />
+					</div>
         </div>
-        <div className="col-md-9">
-          Send exactly { this.props.request.amount } to this address
-          { this.props.request.address }
+        <div className="col-md-12">
+          Send exactly <code>{ this.props.request.amount }</code> to this address
+          <code>{ this.props.request.address }</code>
         </div>
       </div>
 

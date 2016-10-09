@@ -4,7 +4,7 @@ var BitcoinPaymentURLPanel = React.createClass({
   render() {
 		return (
 			<div className="row">
-        <a href={this.props.bitcoinURI}>bitcoin payment uri link</a>
+        <a href={this.props.request.bitcoinURI} className="btn btn-primary">bitcoin payment uri link</a>
 			</div>
 		);
 	}

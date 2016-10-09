@@ -2,7 +2,7 @@ var React = require('react');
 
 var BitcoinPaymentURLPanel = React.createClass({
   handler_url() {
-    return 'https://www.coinbase.com/handler?u=' + this.uri()
+    return 'https://www.coinbase.com/handler?u=' + encodeURIComponent(this.props.request.bitcoinURI)
   },
   uri() {
     return "bitcoin:" + this.props.request['address']
