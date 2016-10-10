@@ -6,7 +6,7 @@ var CirclePanel = React.createClass({
   },
   render(){
 		return (
-			<div>
+			<div className="col-md-12 list-item">
         <a href={this.handler_url()} className="btn btn-primary">Pay with circle</a>
 			</div>
 		);

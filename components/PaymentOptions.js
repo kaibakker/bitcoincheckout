@@ -29,13 +29,13 @@ var PaymentOptions = React.createClass({
         <div>
           <div className="col-xs-12 list-item">Choose your payment type</div>
           <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(BitcoinPanel))}>
-            <b>Bitcoin Address</b>
+            Bitcoin Address
           </a>
 
-          <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(CoinbasePanel))}><b>Coinbase</b><span className="pull-xs-right">redirect to coinbase.com</span></a>
-          <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(CirclePanel))}><b>Circle</b><span className="pull-xs-right">redirect to circle.com</span></a>
-          <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(ShapeShiftPanel))}><b>ShapeShift Litecoin</b><span className="pull-xs-right">redirect to shapeshift.io</span></a>
-          <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(BitcoinPaymentURLPanel))}><b>Bitcoin Payment handler</b></a>
+          <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(CoinbasePanel))}>Coinbase<span className="pull-xs-right">redirect to coinbase.com</span></a>
+          <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(CirclePanel))}>Circle<span className="pull-xs-right">redirect to circle.com</span></a>
+          <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(ShapeShiftPanel))}>ShapeShift Litecoin<span className="pull-xs-right">redirect to shapeshift.io</span></a>
+          <a className="col-xs-12 list-item" onClick={() => this.setPanel(React.createFactory(BitcoinPaymentURLPanel))}>Bitcoin Payment handler</a>
 
         </div>
       )

@@ -11,9 +11,9 @@ var App = React.createClass({
 		return {
 			request: {
 				address: '1FbcR3rv6xsoQSFgrvZBe1xRg7fVU8LdHr',
-				amount: 0.3,
-				label: 'Reddit gold 1 year',
-				bitcoinURI: "bitcoin:1FbcR3rv6xsoQSFgrvZBe1xRg7fVU8LdHr?amount=0.3&message=reddit"
+				amount: 0.03,
+				label: 'Donate to viabitcoin',
+				bitcoinURI: "bitcoin:1FbcR3rv6xsoQSFgrvZBe1xRg7fVU8LdHr?amount=0.03&message=reddit"
 			},
 		};
 	},
@@ -41,7 +41,7 @@ var App = React.createClass({
 	  var request = {};
 
 		var params = url.split('?')
-		request['address'] = params[0].substring(8);
+		request.address = params[0].substring(8);
 
 	  params[1].split("&").forEach(function(part) {
 	    var item = part.split("=");
@@ -63,15 +63,15 @@ var App = React.createClass({
 
 	render(){
 		return (
-			<div className="">
+			<div className="row">
+				<div className="col-xs-12 list-item">
+			    <h4>viabitco.in</h4>
+				</div>
 
-		    <h4>viabitco.in</h4>
+				<PaymentRequest request={this.state.request} />
 
-			  <div className="row">
-					<PaymentRequest request={this.state.request} />
+				<PaymentOptions request={this.state.request} />
 
-					<PaymentOptions request={this.state.request} />
-			  </div>
 			</div>
 		)
 	}
