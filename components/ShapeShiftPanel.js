@@ -22,7 +22,7 @@ var ShapeShiftPanel = React.createClass({
       mode: 'cors',
       cache: 'default'
     };
-    
+
     console.log(myInit);
 
     fetch('https://cors.shapeshift.io/sendamount', myInit)
@@ -46,7 +46,7 @@ var ShapeShiftPanel = React.createClass({
   },
   render(){
 		return (
-			<div>
+			<div className='list-group-item'>
         <a onClick={this.uri} className="btn btn-primary">Shapeshift link</a>
 			</div>
 		);

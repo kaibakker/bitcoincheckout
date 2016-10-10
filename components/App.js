@@ -63,15 +63,21 @@ var App = React.createClass({
 
 	render(){
 		return (
-			<div className="row">
-				<div className="col-xs-12 list-item">
-			    <h4>viabitco.in</h4>
+			<div className="card">
+		  	<div className="card-block">
+					<div className="row">
+						<h3 className='col-xs-12 '>Viabitco.in</h3>
+						<PaymentRequest request={this.state.request} />
+					</div>
 				</div>
 
-				<PaymentRequest request={this.state.request} />
+				<div className="list-group list-group-flush">
+					<PaymentOptions request={this.state.request} />
+				</div>
 
-				<PaymentOptions request={this.state.request} />
-
+			  <div className="card-block small-text">
+					Use viabitcoin at your own risk
+			  </div>
 			</div>
 		)
 	}

@@ -6,7 +6,7 @@ var BitcoinPaymentURLPanel = React.createClass({
   },
   render(){
 		return (
-			<div className="col-md-12 list-item">
+			<div className="list-group-item">
         <a href={this.handler_url()} className="btn btn-primary">Pay with coinbase</a>
 			</div>
 		);
