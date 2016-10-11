@@ -6,14 +6,37 @@
  
 var React = require('react');
 
+
+var ListGroupItem = require('./ListGroupItem')
+
 var ShapeShiftPanel = React.createClass({
-  uri() {
+  getInitialState() {
+    return { currencies: [
+      { currency: 'ltc', name: 'Litecoin' },
+      { currency: 'ppc', name: 'ppc' },
+      { currency: 'drk', name: 'drk', },
+      { currency: 'doge', name: 'doge' },
+      { currency: 'nmc', name: 'nmc' },
+      { currency: 'ftc', name: 'ftc' },
+      { currency: 'blk', name: 'blk' },
+      { currency: 'nxt', name: 'nxt' },
+      { currency: 'btcd', name: 'btcd' },
+      { currency: 'qrk', name: 'qrk' },
+      { currency: 'rdd', name: 'rdd' },
+      { currency: 'nbt', name: 'nbt' },
+      { currency: 'bts', name: 'bts' },
+      { currency: 'bitusd', name: 'bitusd' },
+      { currency: 'xcp', name: 'xcp' },
+      { currency: 'xmr', name: 'xmr'}
+    ] }
+  },
+  send_to_shapeshift(currency) {
     var myInit = {
       method: 'POST',
       body: JSON.stringify({
     		withdrawalAmount: this.props.request.amount,
     		withdrawal: this.props.request.address,
-        pair: 'ltc_btc'
+        pair: currency + '_btc'
     	}),
       headers: {
         'Accept': 'application/json',
@@ -46,9 +69,11 @@ var ShapeShiftPanel = React.createClass({
   },
   render(){
 		return (
-			<div className='list-group-item'>
-        <a onClick={this.uri} className="btn btn-primary">Shapeshift link</a>
-			</div>
+      <div>
+        { this.state.currencies.map((object) => (
+          <ListGroupItem name={object.name} onClick={() => this.send_to_shapeshift(object.currency)} />
+        )) }
+      </div>
 		);
 	}
 });

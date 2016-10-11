@@ -8,6 +8,7 @@ var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
 var ShapeShiftPanel = require('./ShapeShiftPanel');
 var CirclePanel = require('./Coinbase/CirclePanel');
 var CoinbasePanel = require('./Coinbase/CoinbasePanel');
+var ListGroupItem = require('./ListGroupItem')
 
 var PaymentOptions = React.createClass({
   getInitialState() {
@@ -28,13 +29,12 @@ var PaymentOptions = React.createClass({
       return (
         <div>
           <div className="list-group-item">Choose your payment type</div>
-          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(BitcoinPanel))}>
-            Bitcoin Address
-          </a>
-          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(CoinbasePanel))}>Coinbase<span className="pull-xs-right">redirect to coinbase.com</span></a>
-          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(CirclePanel))}>Circle<span className="pull-xs-right">redirect to circle.com</span></a>
-          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(ShapeShiftPanel))}>ShapeShift<span className="pull-xs-right">redirect to shapeshift.io</span></a>
-          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(BitcoinPaymentURLPanel))}>Bitcoin Payment handler</a>
+
+          <ListGroupItem onClick={() => this.setPanel(React.createFactory(BitcoinPanel))} name='Bitcoin Address' />
+          <ListGroupItem onClick={() => this.setPanel(React.createFactory(CoinbasePanel))} name='Coinbase' redirect='coinbase.com' />
+          <ListGroupItem onClick={() => this.setPanel(React.createFactory(CirclePanel))} name='Circle' redirect='circle.com' />
+          <ListGroupItem onClick={() => this.setPanel(React.createFactory(ShapeShiftPanel))} name='ShapeShift' redirect='shapeshift.io' />
+          <ListGroupItem onClick={() => this.setPanel(React.createFactory(BitcoinPaymentURLPanel))} name='Bitcoin' />
         </div>
       )
     }

@@ -1,11 +1,14 @@
 .container {
 	max-width: 400px;
-
-
   padding-top: 20px;
 	padding-bottom: 20px;
+}
 
-
+span.redirect {
+  text-align: right;
+  font-size: 14px;
+  float: right;
+  line-height: 26px;
 }
 
 .qrcode {

@@ -76,7 +76,7 @@ var App = React.createClass({
 				</div>
 
 			  <div className="card-block small-text">
-					Use viabitcoin at your own risk
+					Use viabitcoin at your own risk, <a href='https://twitter.com/kaibakker'>contact me here</a>
 			  </div>
 			</div>
 		)
