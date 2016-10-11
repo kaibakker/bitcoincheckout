@@ -71,7 +71,7 @@ var ShapeShiftPanel = React.createClass({
 		return (
       <div>
         { this.state.currencies.map((object) => (
-          <ListGroupItem name={object.name} onClick={() => this.send_to_shapeshift(object.currency)} />
+          <ListGroupItem name={object.name} onClick={() => this.send_to_shapeshift(object.currency)}  redirect='shapeshift.io'/>
         )) }
       </div>
 		);

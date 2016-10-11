@@ -6,7 +6,7 @@ var ListGroupItem = React.createClass({
     if(this.props.redirect) {
   		return (
   			<a className="list-group-item" onClick={this.props.onClick}>
-          { this.props.name } <span className='redirect'> {"redirect to " + this.props.redirect } </span>
+          { this.props.name } <span className='redirect'> { this.props.redirect } </span>
         </a>
   		)
     } else {

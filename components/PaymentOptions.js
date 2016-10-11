@@ -33,7 +33,7 @@ var PaymentOptions = React.createClass({
           <ListGroupItem onClick={() => this.setPanel(React.createFactory(BitcoinPanel))} name='Bitcoin Address' />
           <ListGroupItem onClick={() => this.setPanel(React.createFactory(CoinbasePanel))} name='Coinbase' redirect='coinbase.com' />
           <ListGroupItem onClick={() => this.setPanel(React.createFactory(CirclePanel))} name='Circle' redirect='circle.com' />
-          <ListGroupItem onClick={() => this.setPanel(React.createFactory(ShapeShiftPanel))} name='ShapeShift' redirect='shapeshift.io' />
+          <ListGroupItem onClick={() => this.setPanel(React.createFactory(ShapeShiftPanel))} name='ShapeShift' />
           <ListGroupItem onClick={() => this.setPanel(React.createFactory(BitcoinPaymentURLPanel))} name='Bitcoin' />
         </div>
       )
