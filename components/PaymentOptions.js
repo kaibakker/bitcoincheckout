@@ -5,9 +5,9 @@ var React = require('react');
 var BitcoinPaymentURLPanel = require('./BitcoinPaymentURLPanel');
 var BitcoinPanel = require('./BitcoinPanel');
 var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
-var ShapeShiftPanel = require('./ShapeShiftPanel');
-var CirclePanel = require('./Coinbase/CirclePanel');
-var CoinbasePanel = require('./Coinbase/CoinbasePanel');
+var ShapeShiftPanel = require('./Services/ShapeShiftPanel');
+var CirclePanel = require('./Services/CirclePanel');
+var CoinbasePanel = require('./Services/CoinbasePanel');
 var ListGroupItem = require('./ListGroupItem')
 
 var PaymentOptions = React.createClass({
@@ -34,7 +34,7 @@ var PaymentOptions = React.createClass({
           <ListGroupItem onClick={() => this.setPanel(React.createFactory(CoinbasePanel))} name='Coinbase' redirect='coinbase.com' />
           <ListGroupItem onClick={() => this.setPanel(React.createFactory(CirclePanel))} name='Circle' redirect='circle.com' />
           <ListGroupItem onClick={() => this.setPanel(React.createFactory(ShapeShiftPanel))} name='ShapeShift' />
-          <ListGroupItem onClick={() => this.setPanel(React.createFactory(BitcoinPaymentURLPanel))} name='Bitcoin' />
+          
         </div>
       )
     }

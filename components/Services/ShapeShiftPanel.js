@@ -7,7 +7,7 @@
 var React = require('react');
 
 
-var ListGroupItem = require('./ListGroupItem')
+var ListGroupItem = require('./../ListGroupItem')
 
 var ShapeShiftPanel = React.createClass({
   getInitialState() {

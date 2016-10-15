@@ -6,11 +6,8 @@ var BitcoinPanel = React.createClass({
   render() {
 		return (
       <div className="list-group-item">
-        <div className="">
-					<div className="m-x-auto qrcode">
-	          <QRCode value={this.props.request.bitcoinURI} />
-					</div>
-        </div>
+        <BitcoinQRCodePanel request={this.props.request} />
+
         <div className="text-sm-center">
           Send exactly <code>{ this.props.request.amount }</code> to this address
           <code> { this.props.request.address }</code>
@@ -20,5 +17,21 @@ var BitcoinPanel = React.createClass({
     )
 	}
 });
+
+var QRCode = require('qrcode.react');
+
+var BitcoinQRCodePanel = React.createClass({
+  render() {
+		return (
+      <a href={this.props.request.bitcoinURI}>
+        <div className="m-x-auto qrcode">
+          <QRCode value={this.props.request.bitcoinURI} />
+        </div>
+      </a>
+		)
+	}
+});
+
+module.exports = BitcoinQRCodePanel;
 
 module.exports = BitcoinPanel;

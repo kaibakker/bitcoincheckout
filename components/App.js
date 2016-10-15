@@ -64,9 +64,11 @@ var App = React.createClass({
 	render(){
 		return (
 			<div className="card">
-		  	<div className="card-block">
+
+
+		  	<div className="card-block blue-block">
 					<div className="row">
-						<h3 className='col-xs-12 '>Viabitco.in</h3>
+
 						<PaymentRequest request={this.state.request} />
 					</div>
 				</div>
@@ -76,7 +78,7 @@ var App = React.createClass({
 				</div>
 
 			  <div className="card-block small-text">
-					Use viabitcoin at your own risk, <a href='https://twitter.com/kaibakker'>contact me here</a>
+					Make it easy to pay with bitcoin <a href='https://twitter.com/kaibakker'>contact me here</a>
 			  </div>
 			</div>
 		)

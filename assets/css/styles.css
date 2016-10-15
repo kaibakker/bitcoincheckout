@@ -3,7 +3,20 @@
   padding-top: 20px;
 	padding-bottom: 20px;
 }
+body {
+    background-image: url(../../assets/images/autumn.jpg);
+    background-size: cover;
+}
 
+.blue-block {
+	 background-color: #5bc0de;
+	 color: white;
+	 font-weight: bold;
+}
+
+.card {
+    overflow: hidden;
+}
 span.redirect {
   text-align: right;
   font-size: 14px;
