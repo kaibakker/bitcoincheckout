@@ -13,7 +13,6 @@ var BitcoinPanel = React.createClass({
           <code> { this.props.request.address }</code>
         </div>
       </div>
-
     )
 	}
 });

@@ -136,7 +136,7 @@ var App = React.createClass({
 		});
 	},
 
-	checkForIncommingTransactions() {
+	checkForIncomingTransactions() {
 		var self = this;
 
 		this.checkBitcoinAddress(function(data) {
@@ -169,8 +169,8 @@ var App = React.createClass({
 			  </div>
 
 				<div className="card-block small-text">
-					<a onClick={this.checkForIncommingTransactions}>
-					 	Check for incomming transactions
+					<a onClick={this.checkForIncomingTransactions}>
+					 	Check for incoming transactions
 					</a>
 					<span className='redirect'> { this.state.paid } </span>
 
@@ -184,7 +184,7 @@ var App = React.createClass({
 
 });
 // <a href='https://test-insight.bitpay.com/address/mnuSpyyoNmEPoiwiYVKmxvj25wsFEhimN2'>
-//  	Check for incomming transactions
+//  	Check for incoming transactions
 // </a>
 
 
