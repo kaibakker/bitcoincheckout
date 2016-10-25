@@ -12,10 +12,10 @@ var IndexPanel = React.createClass({
   render() {
     return (
       <div>
-        <ListGroupItem onClick={() => this.props.panelController.setPanel(React.createFactory(BitcoinPanel))} name='Bitcoin Address' />
-        <ListGroupItem onClick={() => this.props.panelController.setPanel(React.createFactory(CoinbasePanel))} name='Coinbase' redirect='coinbase.com' />
-        <ListGroupItem onClick={() => this.props.panelController.setPanel(React.createFactory(CirclePanel))} name='Circle' redirect='circle.com' />
-        <ListGroupItem onClick={() => this.props.panelController.setPanel(React.createFactory(ShapeShiftPanel))} name='ShapeShift' />
+        <ListGroupItem onClick={() => this.props.panelController.setPanel(BitcoinPanel)} name='Bitcoin Address' />
+        <ListGroupItem onClick={() => this.props.panelController.setPanel(CoinbasePanel)} name='Coinbase' redirect='coinbase.com' />
+        <ListGroupItem onClick={() => this.props.panelController.setPanel(CirclePanel)} name='Circle' redirect='circle.com' />
+        <ListGroupItem onClick={() => this.props.panelController.setPanel(ShapeShiftPanel)} name='ShapeShift' />
       </div>
     )
 	}

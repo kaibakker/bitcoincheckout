@@ -6,29 +6,28 @@ var ListGroupItem = require('./ListGroupItem')
 
 var PanelController = React.createClass({
   getInitialState() {
-    return { panel: null }
+    return { panel: IndexPanel }
   },
   setPanel(panel) {
     this.setState({ panel: panel })
   },
   render() {
-    if(this.state.panel != null) {
+    if(this.state.panel.displayName == "IndexPanel") {
       return (
         <div>
-          <a className="list-group-item" onClick={() => this.setPanel(React.createFactory(IndexPanel))}>Choose other payment method</a>
-          {this.state.panel({ request: this.props.request })}
+          <div className="list-group-item">Choose your payment type</div>
 
-          <ListGroupItem onClick={() => this.setPanel(React.createFactory(IndexPanel))} name='Bitcoin Address' />
+          {React.createFactory(this.state.panel)({ request: this.props.request, panelController: this })}
         </div>
       );
     } else {
       return (
         <div>
-          <div className="list-group-item">Choose your payment type</div>
+          <ListGroupItem onClick={() => this.setPanel(IndexPanel)} name='Other payment option' />
 
-          <IndexPanel panelController={this} />
+          {React.createFactory(this.state.panel)({ request: this.props.request, panelController: this })}
         </div>
-      )
+      );
     }
 	}
 });
