@@ -106,6 +106,7 @@ var PaymentRequest = React.createClass({
 
 	        console.log(beforBlockHeight);
 	        request['transactionsStatus'] = 'paid'
+					this.props.panelController.setPanel(TransactionStatusPanel)
 	      } else {
 	        request['transactionsStatus'] = 'unpaid'
 	      }
