@@ -3,31 +3,24 @@ var React = require('react');
 
 var PaymentRequest = require('./PaymentRequest');
 
-var PaymentOptions = require('./PaymentOptions');
+var PaymentOptions = require('./PanelController');
 
-
-function Request (type) {
-    this.type = type;
-    this.color = "red";
-    this.getInfo = function() {
-        return this.color + ' ' + this.type + ' apple';
-    };
-}
 
 
 var App = React.createClass({
-
 	getInitialState(){
-
 		return {
 			request: {
 				address: 'mnuSpyyoNmEPoiwiYVKmxvj25wsFEhimN2',
 				amount: 0.03,
 				label: 'Donate to viabitcoin',
-				bitcoinURI: "bitcoin:mnuSpyyoNmEPoiwiYVKmxvj25wsFEhimN2?amount=0.03&message=reddit"
+				bitcoinURI: "bitcoin:mnuSpyyoNmEPoiwiYVKmxvj25wsFEhimN2?amount=0.03&message=reddit",
+        blockHeight: undefined,
+        transactionsStatus: "checking"
 			},
 		};
 	},
+
 
 	componentWillMount() {
 		var value = decodeURIComponent(window.location.search.replace("?", ""));
@@ -35,13 +28,8 @@ var App = React.createClass({
 			this.setBitcoinPaymentRequest(value);
 		}
 		var self = this;
-
-		this.checkBitcoinAddress(function(data) {
-			self.setState({
-				transactions: data.txs
-			});
-		});
 	},
+
 
 	addToTransactions(transaction){
 		var transactions = this.state.transactions;
@@ -55,6 +43,10 @@ var App = React.createClass({
 		localStorage.transactions = JSON.stringify(transactions);
 	},
 
+
+
+  // from bitcoin payment request
+
 	fromBitcoinPaymentRequest(url) {
 	  var request = {};
 
@@ -67,10 +59,10 @@ var App = React.createClass({
 	  });
 	  return request;
 	},
-
-	setRequest(request) {
-		this.setState( { request: request } )
-	},
+  //
+	// setRequest(request) {
+	// 	this.setState( { request: request } )
+	// },
 
 	setBitcoinPaymentRequest(uri){
 		var request = this.fromBitcoinPaymentRequest(uri)
@@ -78,78 +70,6 @@ var App = React.createClass({
 		this.setCurrentRequest(request)
 	},
 
-	checkBitcoinAddress(callback) {
-		fetch('https://api.blockcypher.com/v1/btc/test3/addrs/' + this.state.request.address + '/full?limit=50')
-		.then(function(response) {
-			if (response.status == 400) {
-				console.log("No transactions found")
-				return;
-			}
-
-			if (response.status !== 200) {
-				console.log('Looks like there was a problem. Status Code: ' + response.status);
-				console.log(response)
-				return;
-			}
-
-			// Examine the text in the response
-			response.json().then(function(data) {
-				if (data.error == "Not found") {
-
-				} else {
-					console.log("transactions for address:")
-					console.log(data.txs.length);
-
-					callback(data)
-				}
-			});
-		});
-		// https://api.blockcypher.com/v1/btc/test3/addrs/mnuSpyyoNmEPoiwiYVKmxvj25wsFEhimN2/full?limit=50
-
-	},
-
-	checkToshi(callback) {
-		fetch('https://testnet3.toshi.io/api/v0/addresses/' + this.state.request.address + '/transactions')
-    .then(function(response) {
-			if (response.status == 400) {
-        console.log("No transactions found")
-        return;
-      }
-
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' + response.status);
-        console.log(response)
-        return;
-      }
-
-      // Examine the text in the response
-      response.json().then(function(data) {
-				if (data.error == "Not found") {
-
-				} else {
-					console.log("transactions for address:")
-	        console.log(data.txs.length);
-
-					callback(data)
-				}
-      });
-		});
-	},
-
-	checkForIncomingTransactions() {
-		var self = this;
-
-		this.checkBitcoinAddress(function(data) {
-			console.log(self.state.transactions);
-			console.log(data.txs);
-			console.log(data.unconfirmed_transactions);
-			if(self.state.transactions.length == data.txs.length) {
-				self.setState({ paid: "unpaid" });
-			} else {
-				self.setState({paid: "paid" });
-			}
-		})
-	},
 
 	render(){
 		return (
@@ -163,20 +83,6 @@ var App = React.createClass({
 				<div className="list-group list-group-flush">
 					<PaymentOptions request={this.state.request} />
 				</div>
-
-			  <div className="card-block small-text">
-					Make it easy to pay with bitcoin <a href='https://twitter.com/kaibakker'>contact me here</a>
-			  </div>
-
-				<div className="card-block small-text">
-					<a onClick={this.checkForIncomingTransactions}>
-					 	Check for incoming transactions
-					</a>
-					<span className='redirect'> { this.state.paid } </span>
-
-
-
-			  </div>
 
 			</div>
 		)

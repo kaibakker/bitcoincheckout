@@ -17,7 +17,6 @@ var BitcoinPanel = React.createClass({
 	}
 });
 
-var QRCode = require('qrcode.react');
 
 var BitcoinQRCodePanel = React.createClass({
   render() {
@@ -30,7 +29,5 @@ var BitcoinQRCodePanel = React.createClass({
 		)
 	}
 });
-
-module.exports = BitcoinQRCodePanel;
 
 module.exports = BitcoinPanel;
