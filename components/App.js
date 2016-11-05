@@ -72,7 +72,7 @@ var App = React.createClass({
 					</div>
 				</div>
 
-				<div className="list-group list-group-flush">
+				<div>
 					<PanelController request={this.state.request} />
 				</div>
 			</div>

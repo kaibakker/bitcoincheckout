@@ -15,11 +15,11 @@ var IndexPanel = React.createClass({
   },
   render() {
     return (
-      <div>
+      <div className="list-group list-group-flush">
         <ListGroupItem onClick={this.handleClick(BitcoinPanel)} name='Bitcoin Address' />
-        <ListGroupItem onClick={this.handleClick(CoinbasePanel)} name='Coinbase' redirect='coinbase.com' />
+        <ListGroupItem onClick={this.handleClick(CoinbasePanel)} name='Coinbase' redirect='coinbase.com' image='assets/images/coinbase.png'/>
         <ListGroupItem onClick={this.handleClick(CirclePanel)} name='Circle' redirect='circle.com' />
-        <ListGroupItem onClick={this.handleClick(ShapeShiftPanel)} name='ShapeShift' />
+        <ListGroupItem onClick={this.handleClick(ShapeShiftPanel)} name='ShapeShift' image='assets/images/shapeshift.png'/>
         <ListGroupItem onClick={this.handleClick(TransactionStatusPanel)} name='Status' />
       </div>
     )
