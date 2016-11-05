@@ -143,7 +143,8 @@ var ShapeShiftPanel = React.createClass({
 		return (
       <div>
         { Object.keys(this.state.coins).map(function (key) {
-          return <ListGroupItem onClick={() => this.send_to_shapeshift(key)} name={this.state.coins[key].name} redirect='coinbase.com' />
+          var coin = this.state.coins[key]
+          return <ListGroupItem onClick={() => this.send_to_shapeshift(key)} name={coin.name} redirect={coin.symbol} image={coin.image} />
         }, this) }
       </div>
 		);

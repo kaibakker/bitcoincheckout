@@ -11,10 +11,10 @@ var App = React.createClass({
 	getInitialState(){
 		return {
 			request: {
-				address: 'mnuSpyyoNmEPoiwiYVKmxvj25wsFEhimN2',
+				address: '124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB',
 				amount: 0.03,
 				label: 'Donate to viabitcoin',
-				bitcoinURI: "bitcoin:mnuSpyyoNmEPoiwiYVKmxvj25wsFEhimN2?amount=0.03&message=reddit",
+				bitcoinURI: "bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit",
         blockHeight: undefined,
         transactionsStatus: "checking"
 			},
