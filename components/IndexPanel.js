@@ -12,15 +12,15 @@ var ListGroupItem = require('./ListGroupItem')
 var IndexPanel = React.createClass({
   handleClick(panel) {
     return () => this.props.panelController.setPanel(panel)
-  }
+  },
   render() {
     return (
       <div>
-        <ListGroupItem onClick={handleClick(BitcoinPanel)} name='Bitcoin Address' />
-        <ListGroupItem onClick={handleClick(CoinbasePanel)} name='Coinbase' redirect='coinbase.com' />
-        <ListGroupItem onClick={handleClick(CirclePanel)} name='Circle' redirect='circle.com' />
-        <ListGroupItem onClick={handleClick(ShapeShiftPanel)} name='ShapeShift' />
-        <ListGroupItem onClick={handleClick(TransactionStatusPanel)} name='Status' />
+        <ListGroupItem onClick={this.handleClick(BitcoinPanel)} name='Bitcoin Address' />
+        <ListGroupItem onClick={this.handleClick(CoinbasePanel)} name='Coinbase' redirect='coinbase.com' />
+        <ListGroupItem onClick={this.handleClick(CirclePanel)} name='Circle' redirect='circle.com' />
+        <ListGroupItem onClick={this.handleClick(ShapeShiftPanel)} name='ShapeShift' />
+        <ListGroupItem onClick={this.handleClick(TransactionStatusPanel)} name='Status' />
       </div>
     )
 	}
