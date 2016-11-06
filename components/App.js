@@ -65,13 +65,14 @@ var App = React.createClass({
 
 	render(){
 		return (
-			<div className="card">
-		  	<div className="card-block blue-block">
-					<div className="row">
-						<PaymentRequest request={this.state.request} panelController={this} />
+			<div>
+				<div className="card">
+			  	<div className="card-block blue-block">
+						<div className="row">
+							<PaymentRequest request={this.state.request} panelController={this} />
+						</div>
 					</div>
 				</div>
-
 				<div>
 					<PanelController request={this.state.request} />
 				</div>

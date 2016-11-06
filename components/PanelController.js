@@ -15,7 +15,7 @@ var PanelController = React.createClass({
     if(this.state.panel.displayName == "IndexPanel") {
       return (
         <div>
-          <div className="list-group-item">Choose your payment type</div>
+          <div className="">Choose your payment type</div>
 
           {React.createFactory(this.state.panel)({ request: this.props.request, panelController: this })}
         </div>
@@ -23,7 +23,9 @@ var PanelController = React.createClass({
     } else {
       return (
         <div>
-          <ListGroupItem onClick={() => this.setPanel(IndexPanel)} name='Other payment option' />
+
+
+          <a className="" onClick={() => this.setPanel(IndexPanel)}>Other payment option</a>
 
           {React.createFactory(this.state.panel)({ request: this.props.request, panelController: this })}
         </div>

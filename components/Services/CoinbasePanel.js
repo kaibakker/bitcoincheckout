@@ -7,7 +7,13 @@ var BitcoinPaymentURLPanel = React.createClass({
   render(){
 		return (
 			<div className="list-group-item">
-        <a href={this.handler_url()} className="btn btn-primary">Pay with coinbase</a>
+
+
+        <div className="m-x-auto qrcode">
+          <img src='assets/images/coinbase.png' className="icon" />
+        </div>
+        <h5 className="text-md-center">Pay with Coinbase</h5>
+        <a href={this.handler_url()} className="btn btn-primary">request Coinbase</a>
 			</div>
 		);
 	}

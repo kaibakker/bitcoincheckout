@@ -132,6 +132,9 @@ h1 {
 	margin: 0 auto;
 }
 
+.icon {
+	width: 128px;
+}
 
 
 a.list-group-item:hover {
