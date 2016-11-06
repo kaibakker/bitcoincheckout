@@ -51,9 +51,13 @@ var TransactionStatusPanel = React.createClass({
   render() {
     return (
       <div className="card">
-        <div className="card-header">Transaction status</div>
+        <div className="card-header">
+          Transaction status
+          <span className="redirect" onClick={() => this.props.panelController.goToIndex()}>change</span>
+        </div>
 
         <div className="list-group-item">
+          <p>This panel is used for the development of a payment status feature.</p>
           Status: {this.props.request.transactionsStatus}
           ({this.props.request.totalTransactionsReceivedOnAddress})
           <div className="text-md-right">

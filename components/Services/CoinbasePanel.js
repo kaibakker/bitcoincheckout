@@ -1,7 +1,7 @@
 var React = require('react');
 
 
-var IndexPanel = require('../IndexPanel');
+
 
 var CoinbasePanel = React.createClass({
   handler_url() {
@@ -12,8 +12,9 @@ var CoinbasePanel = React.createClass({
 			<div className="card">
         <div className="card-header">
           Pay with Coinbase
-          
+          <span className="redirect" onClick={() => this.props.panelController.goToIndex()}>change</span>
         </div>
+
         <div className="list-group-item">
           <div className="m-x-auto qrcode">
             <img src='assets/images/coinbase.png' className="icon" />

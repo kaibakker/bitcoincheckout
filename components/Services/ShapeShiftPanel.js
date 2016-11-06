@@ -122,6 +122,7 @@ var ShapeShiftPanel = React.createClass({
       <div className="card">
         <div className="card-header">
           Pay with ShapeShift
+          <span className="redirect" onClick={() => this.props.panelController.goToIndex()}>change</span>
         </div>
         { this.state.coins.map(function (coin, index) {
           return <ListGroupItem onClick={() => this.send_to_shapeshift(coin.symbol)} name={coin.name} redirect={coin.symbol} image={coin.image} />

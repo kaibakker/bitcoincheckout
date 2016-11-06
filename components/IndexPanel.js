@@ -4,7 +4,7 @@ var React = require('react');
 var BitcoinPanel = require('./BitcoinPanel');
 var ShapeShiftPanel = require('./Services/ShapeShiftPanel');
 var CirclePanel = require('./Services/CirclePanel');
-var CoinbasePanel = require('./Services/CoinbasePanel');
+var CoinbasePanel = require('./CoinbasePanel');
 var TransactionStatusPanel = require('./TransactionStatusPanel');
 
 var ListGroupItem = require('./ListGroupItem')

@@ -29,23 +29,19 @@ var App = React.createClass({
 
 		if(this.requestIsValid(request)) {
 			this.setState({request: request})
-
-			this.addToTransactions(request)
 		}
 	},
 
 	setRequest(request) {
-		var source = request
-		console.log(source)
-		var destination = this.state.request
-		console.log(destination)
-		for (var property in source) {
-        if (source.hasOwnProperty(property)) {
-            destination[property] = source[property];
-        }
+		var newRequest = this.state.request;
+		
+		for (var property in request) {
+      if (request.hasOwnProperty(property)) {
+        newRequest[property] = request[property];
+      }
     }
-		console.log(destination)
-		this.setState({request: destination})
+
+		this.setState({request: newRequest})
 	},
 
 	makeRequestFromProtocolURI() {
@@ -83,9 +79,7 @@ var App = React.createClass({
 			<div>
 				<PaymentRequest request={this.state.request} app={this} />
 
-				<div>
-					<PanelController request={this.state.request} app={this}/>
-				</div>
+				<PanelController request={this.state.request} app={this}/>
 			</div>
 		)
 	}
