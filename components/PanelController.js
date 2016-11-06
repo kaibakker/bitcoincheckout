@@ -11,20 +11,19 @@ var PanelController = React.createClass({
   setPanel(panel) {
     this.setState({ panel: panel })
   },
+  setRequest(request) {
+    this.props.app.setRequest(request)
+  },
   render() {
     if(this.state.panel.displayName == "IndexPanel") {
       return (
         <div>
-          <div className="">Choose your payment type</div>
-
           {React.createFactory(this.state.panel)({ request: this.props.request, panelController: this })}
         </div>
       );
     } else {
       return (
         <div>
-
-
           <a className="" onClick={() => this.setPanel(IndexPanel)}>Other payment option</a>
 
           {React.createFactory(this.state.panel)({ request: this.props.request, panelController: this })}

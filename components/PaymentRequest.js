@@ -1,13 +1,12 @@
 var React = require('react');
 
 var PaymentRequest = React.createClass({
-	select() {
-		this.props.app.setRequest(this.props.request)
-	},
-
 
 	componentWillMount() {
-    this.loadTransactions()
+    this.checkBitcoinAddress(this.updateTransactionStatus)
+	},
+	updateTransactionStatus(data) {
+		this.props.app.setRequest({ totalTransactionsReceivedOnAddress: data.n_tx + data.unconfirmed_n_tx })
 	},
 
   // transactions
@@ -24,7 +23,7 @@ var PaymentRequest = React.createClass({
 
   updateTransaction() {
     this.checkBitcoinAddress(function(data) {
-      localStorage.setItem(this.props.request.address, data.txs[0].block_height || -1)
+
     });
   },
 
@@ -32,7 +31,7 @@ var PaymentRequest = React.createClass({
 	  // api services
 
 		checkBitcoinAddress(callback) {
-			fetch('https://api.blockcypher.com/v1/btc/test3/addrs/' + this.props.request.address + '/full?limit=50')
+			fetch('https://api.blockcypher.com/v1/btc/' + this.props.request.network + '/addrs/' + this.props.request.address + '/full?limit=50')
 			.then(function(response) {
 				if (response.status == 400) {
 					console.log("No transactions found")
@@ -51,15 +50,14 @@ var PaymentRequest = React.createClass({
 
 					} else {
 						console.log("transactions for address:")
-						console.log(data.txs.length);
+						console.log(data.total_received);
 
 						callback(data)
 					}
 				});
 			});
-			// https://api.blockcypher.com/v1/btc/test3/addrs/mnuSpyyoNmEPoiwiYVKmxvj25wsFEhimN2/full?limit=50
-
 		},
+
 
 		checkToshi(callback) {
 			fetch('https://testnet3.toshi.io/api/v0/addresses/' + this.props.request.address + '/transactions')

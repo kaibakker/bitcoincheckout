@@ -11,12 +11,13 @@ var App = React.createClass({
 	getInitialState(){
 		return {
 			request: {
-				address: '124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB',
+				address: 'mxPGHKg4EnoqVdoRqK5TyKy4m1W5TsZgh4',
 				amount: 0.03,
 				label: 'Donate to viabitcoin',
-				bitcoinURI: "bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit",
-        blockHeight: undefined,
-        transactionsStatus: "checking"
+				bitcoinURI: "bitcoin:mxPGHKg4EnoqVdoRqK5TyKy4m1W5TsZgh4?amount=0.03&message=reddit",
+        totalTransactionsReceivedOnAddress: 0,
+        transactionsStatus: "unpaid",
+				network: 'test3'
 			},
 		};
 	},
@@ -31,6 +32,20 @@ var App = React.createClass({
 
 			this.addToTransactions(request)
 		}
+	},
+
+	setRequest(request) {
+		var source = request
+		console.log(source)
+		var destination = this.state.request
+		console.log(destination)
+		for (var property in source) {
+        if (source.hasOwnProperty(property)) {
+            destination[property] = source[property];
+        }
+    }
+		console.log(destination)
+		this.setState({request: destination})
 	},
 
 	makeRequestFromProtocolURI() {
@@ -69,12 +84,12 @@ var App = React.createClass({
 				<div className="card">
 			  	<div className="card-block blue-block">
 						<div className="row">
-							<PaymentRequest request={this.state.request} panelController={this} />
+							<PaymentRequest request={this.state.request} app={this} />
 						</div>
 					</div>
 				</div>
 				<div>
-					<PanelController request={this.state.request} />
+					<PanelController request={this.state.request} app={this}/>
 				</div>
 			</div>
 		)

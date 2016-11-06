@@ -119,7 +119,10 @@ var ShapeShiftPanel = React.createClass({
   render(){
     var self = this;
 		return (
-      <div className="list-group list-group-flush">
+      <div className="list-group">
+        <div className="list-group-item">
+          Pay with ShapeShift
+        </div>
         { this.state.coins.map(function (coin, index) {
           return <ListGroupItem onClick={() => this.send_to_shapeshift(coin.symbol)} name={coin.name} redirect={coin.symbol} image={coin.image} />
         }, this) }

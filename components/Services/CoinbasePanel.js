@@ -1,22 +1,31 @@
 var React = require('react');
 
-var BitcoinPaymentURLPanel = React.createClass({
+
+var IndexPanel = require('./../IndexPanel');
+
+var CoinbasePanel = React.createClass({
   handler_url() {
     return 'https://www.coinbase.com/handler?u=' + encodeURIComponent(this.props.request.bitcoinURI)
   },
   render(){
 		return (
-			<div className="list-group-item">
-
-
-        <div className="m-x-auto qrcode">
-          <img src='assets/images/coinbase.png' className="icon" />
+			<div className="list-group">
+        <div className="list-group-item">
+          Pay with Coinbase
+          <span className="redirect" onClick={() => this.props.panelController.setPanel(IndexPanel)}>change</span>
         </div>
-        <h5 className="text-md-center">Pay with Coinbase</h5>
-        <a href={this.handler_url()} className="btn btn-primary">request Coinbase</a>
+        <div className="list-group-item">
+          <div className="m-x-auto qrcode">
+            <img src='assets/images/coinbase.png' className="icon" />
+          </div>
+          <p>Coinbase provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
+          <div className="text-md-right">
+            <a href={this.handler_url()} className="btn btn-primary">send to Coinbase</a>
+          </div>
+        </div>
 			</div>
 		);
 	}
 });
 
-module.exports = BitcoinPaymentURLPanel;
+module.exports = CoinbasePanel;
