@@ -3,14 +3,11 @@
   padding-top: 20px;
 	padding-bottom: 20px;
 }
-body {
-
-}
 
 .blue-block {
-	 background-color: #5bc0de;
+	 /*background-color: #5bc0de;
 	 color: white;
-	 font-weight: bold;
+	 font-weight: bold;*/
 }
 
 .card {
@@ -47,7 +44,7 @@ span.redirect {
 /* end */
 
 body {
-	background-color: #eee;
+	background-color: #ffd;
 }
 
 section {
@@ -159,4 +156,8 @@ a.list-group-item span.createdAt {
 	width: 20px;
 	height: 20px;
 	margin-right: 15px;
+}
+
+.card-header {
+	border: none
 }

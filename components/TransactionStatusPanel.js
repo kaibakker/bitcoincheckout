@@ -37,18 +37,21 @@ var TransactionStatusPanel = React.createClass({
     this.checkBitcoinAddress(this.updateTransactionStatus)
   },
   updateTransactionStatus(data) {
+    console.log('update transactino status')
+    console.log(this.props.request)
+    console.log(data)
     if(this.props.request.totalTransactionsReceivedOnAddress < data.n_tx) {
-      this.props.panelController.setRequest({ status: "paid"})
-    } else if(this.props.request.totalTransactionsReceivedOnAddress < data.unconfirmed_n_tx) {
-      this.props.panelController.setRequest({ status: "not confirmed"})
+      this.props.panelController.setRequest({ transactionsStatus: "paid"})
+    } else if(this.props.request.totalTransactionsReceivedOnAddress < data.n_tx + data.unconfirmed_n_tx) {
+      this.props.panelController.setRequest({ transactionsStatus: "not confirmed"})
     } else {
-      this.props.panelController.setRequest({ status: "unpaid"})
+      this.props.panelController.setRequest({ transactionsStatus: "unpaid"})
     }
   },
   render() {
     return (
-      <div className="list-group">
-        <div className="list-group-item">Transaction status</div>
+      <div className="card">
+        <div className="card-header">Transaction status</div>
 
         <div className="list-group-item">
           Status: {this.props.request.transactionsStatus}

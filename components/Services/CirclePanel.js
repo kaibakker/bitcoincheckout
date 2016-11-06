@@ -6,16 +6,11 @@ var CirclePanel = React.createClass({
   },
   render(){
 		return (
-
-      <div className="list-group">
-        <div className="list-group-item">
+      <div className="card">
+        <div className="card-header">
           Pay with Circle
-          <span className="redirect" onClick={() => this.props.panelController.setPanel(IndexPanel)}>change</span>
         </div>
         <div className="list-group-item">
-          <div className="m-x-auto qrcode">
-            <img src='assets/images/circle.png' className="icon" />
-          </div>
           <p>Circle provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
           <div className="text-md-right">
             <a href={this.handler_url()} className="btn btn-primary">send to Circle</a>

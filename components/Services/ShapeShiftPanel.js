@@ -119,8 +119,8 @@ var ShapeShiftPanel = React.createClass({
   render(){
     var self = this;
 		return (
-      <div className="list-group">
-        <div className="list-group-item">
+      <div className="card">
+        <div className="card-header">
           Pay with ShapeShift
         </div>
         { this.state.coins.map(function (coin, index) {

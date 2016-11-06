@@ -65,29 +65,24 @@ var App = React.createClass({
 	  return request;
 	},
 
-	requestIsValid(request){
+	requestIsValid(request) {
 		return request.address != undefined && request.amount != undefined && request.label != undefined
 	},
 
 
 
-	addToTransactions(transaction){
+	addToTransactions(transaction) {
 		// var transactions = localStorage.getItem('transactions')
 
 		localStorage.setItem(this.state.request.address, this.state.request.blockHeight)
 	},
 
 
-	render(){
+	render() {
 		return (
 			<div>
-				<div className="card">
-			  	<div className="card-block blue-block">
-						<div className="row">
-							<PaymentRequest request={this.state.request} app={this} />
-						</div>
-					</div>
-				</div>
+				<PaymentRequest request={this.state.request} app={this} />
+
 				<div>
 					<PanelController request={this.state.request} app={this}/>
 				</div>

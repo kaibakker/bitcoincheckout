@@ -9,6 +9,8 @@ var PanelController = React.createClass({
     return { panel: IndexPanel }
   },
   setPanel(panel) {
+    console.log("RESET PANEL")
+    console.log(panel)
     this.setState({ panel: panel })
   },
   setRequest(request) {
