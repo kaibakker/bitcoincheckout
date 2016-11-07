@@ -11,13 +11,13 @@ var App = React.createClass({
 	getInitialState(){
 		return {
 			request: {
-				address: 'mxPGHKg4EnoqVdoRqK5TyKy4m1W5TsZgh4',
+				address: '124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB',
 				amount: 0.03,
-				label: 'Donate to viabitcoin',
-				bitcoinURI: "bitcoin:mxPGHKg4EnoqVdoRqK5TyKy4m1W5TsZgh4?amount=0.03&message=reddit",
+				label: 'Donate to Bitcoin Checkout',
+				bitcoinURI: "bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit",
         totalTransactionsReceivedOnAddress: 0,
         transactionsStatus: "unpaid",
-				network: 'test3'
+				network: 'main'
 			},
 		};
 	},
@@ -34,7 +34,7 @@ var App = React.createClass({
 
 	setRequest(request) {
 		var newRequest = this.state.request;
-		
+
 		for (var property in request) {
       if (request.hasOwnProperty(property)) {
         newRequest[property] = request[property];
