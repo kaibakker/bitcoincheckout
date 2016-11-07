@@ -64,6 +64,8 @@ var TransactionStatusPanel = React.createClass({
             <a onClick={this.reloadStatus} href="#" className="btn btn-primary">reload status</a>
           </div>
         </div>
+
+
       </div>
     )
 	}

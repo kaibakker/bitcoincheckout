@@ -4,8 +4,9 @@ var React = require('react');
 var BitcoinPanel = require('./BitcoinPanel');
 var ShapeShiftPanel = require('./Services/ShapeShiftPanel');
 var CirclePanel = require('./Services/CirclePanel');
-var CoinbasePanel = require('./CoinbasePanel');
+var CoinbasePanel = require('./Services/CoinbasePanel');
 var TransactionStatusPanel = require('./TransactionStatusPanel');
+var RatesPanel = require('./RatesPanel');
 
 var ListGroupItem = require('./ListGroupItem')
 
@@ -22,6 +23,7 @@ var IndexPanel = React.createClass({
         <ListGroupItem onClick={this.handleClick(CirclePanel)} name='Circle' />
         <ListGroupItem onClick={this.handleClick(ShapeShiftPanel)} name='ShapeShift' image='assets/images/shapeshift.png'/>
         <ListGroupItem onClick={this.handleClick(TransactionStatusPanel)} name='Transaction Status' />
+        <ListGroupItem onClick={this.handleClick(RatesPanel)} name='Rates' />
       </div>
     )
 	}
