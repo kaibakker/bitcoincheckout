@@ -16,7 +16,7 @@ var App = React.createClass({
 				label: 'Donate to Bitcoin Checkout',
 				bitcoinURI: "bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit",
         totalTransactionsReceivedOnAddress: 0,
-        transactionsStatus: "unpaid",
+        status: "unpaid",
 				network: 'main'
 			},
 		};

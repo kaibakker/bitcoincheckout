@@ -16,14 +16,19 @@ var IndexPanel = React.createClass({
   },
   render() {
     return (
+      <div>
       <div className="card">
         <div className="card-header">How would you like to pay?</div>
         <ListGroupItem onClick={this.handleClick(BitcoinPanel)} name='Bitcoin Address' />
         <ListGroupItem onClick={this.handleClick(CoinbasePanel)} name='Coinbase' image='assets/images/coinbase.png'/>
         <ListGroupItem onClick={this.handleClick(CirclePanel)} name='Circle' />
         <ListGroupItem onClick={this.handleClick(ShapeShiftPanel)} name='ShapeShift' image='assets/images/shapeshift.png'/>
+      </div>
+      <div className="card">
+        <div className="card-header">Status widgets</div>
         <ListGroupItem onClick={this.handleClick(TransactionStatusPanel)} name='Transaction Status' />
-        <ListGroupItem onClick={this.handleClick(RatesPanel)} name='Rates' />
+        <ListGroupItem onClick={this.handleClick(RatesPanel)} name='Bitpay currency rates' />
+      </div>
       </div>
     )
 	}

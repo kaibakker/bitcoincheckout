@@ -1,7 +1,8 @@
 var React = require('react');
 
-var PaymentRequest = React.createClass({
+var Rate = require('./Rate')
 
+var PaymentRequest = React.createClass({
 	componentWillMount() {
     this.checkBitcoinAddress(this.updateTransactionStatus)
 	},
@@ -70,42 +71,25 @@ var PaymentRequest = React.createClass({
 		});
 	},
 
-
-	// checkForIncomingTransactions() {
-	// 	var self = this;
-	//
-	// 	this.checkBitcoinAddress(function(data) {
-  //     var lastBlockHeight = data.txs[0].block_height
-	//
-  //     var beforBlockHeight = localStorage.getItem(self.props.request.address)
-	//
-	//
-  //     var request = self.props.request
-	//
-  //     if(beforBlockHeight != lastBlockHeight) {
-  //       console.log(lastBlockHeight);
-	//
-  //       console.log(beforBlockHeight);
-  //       request['transactionsStatus'] = 'paid'
-	// 			this.props.panelController.setPanel(TransactionStatusPanel)
-  //     } else {
-  //       request['transactionsStatus'] = 'unpaid'
-  //     }
-	//
-  //     self.setState({ request: request });
-	// 	})
-	// },
-
 	render() {
 		return (
 			<div className="card">
+				<div className="card-header">
+					Bitcoin Checkout
+					<span className="redirect">info</span>
+				</div>
 				<div className="card-block blue-block">
-					<div className="row">
 
+					<div className="row">
 						<div className='col-xs-8'>{this.props.request.label}</div>
 						<div className='col-xs-4 text-xs-right'>{this.props.request.amount} BTC</div>
+					</div>
 
-					
+					<div className="row">
+						<div className='col-xs-8'>{this.props.request.status}</div>
+						<div className='col-xs-4 text-xs-right'>
+							<Rate request={ this.props.request } />
+						</div>
 					</div>
 				</div>
 			</div>

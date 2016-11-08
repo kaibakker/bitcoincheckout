@@ -41,11 +41,11 @@ var TransactionStatusPanel = React.createClass({
     console.log(this.props.request)
     console.log(data)
     if(this.props.request.totalTransactionsReceivedOnAddress < data.n_tx) {
-      this.props.panelController.setRequest({ transactionsStatus: "paid"})
+      this.props.panelController.setRequest({ status: "paid"})
     } else if(this.props.request.totalTransactionsReceivedOnAddress < data.n_tx + data.unconfirmed_n_tx) {
-      this.props.panelController.setRequest({ transactionsStatus: "not confirmed"})
+      this.props.panelController.setRequest({ status: "not confirmed"})
     } else {
-      this.props.panelController.setRequest({ transactionsStatus: "unpaid"})
+      this.props.panelController.setRequest({ status: "unpaid"})
     }
   },
   render() {
@@ -58,7 +58,7 @@ var TransactionStatusPanel = React.createClass({
 
         <div className="list-group-item">
           <p>This panel is used for the development of a payment status feature.</p>
-          Status: {this.props.request.transactionsStatus}
+          Status: {this.props.request.status}
           ({this.props.request.totalTransactionsReceivedOnAddress})
           <div className="text-md-right">
             <a onClick={this.reloadStatus} href="#" className="btn btn-primary">reload status</a>

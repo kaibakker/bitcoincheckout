@@ -39,7 +39,7 @@ var RatesPanel = React.createClass({
     return (
       <div className="card">
         <div className="card-header">
-          Rates
+          Bitpay currency rates
           <span className="redirect" onClick={() => this.props.panelController.goToIndex()}>change</span>
         </div>
 
