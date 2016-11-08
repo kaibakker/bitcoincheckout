@@ -5,7 +5,7 @@ var PaymentRequest = require('./PaymentRequest');
 
 var PanelController = require('./PanelController');
 
-var IndexPanel = require('./IndexPanel');
+var IndexPanel = require('./Panels/IndexPanel');
 
 var App = React.createClass({
 	getInitialState(){

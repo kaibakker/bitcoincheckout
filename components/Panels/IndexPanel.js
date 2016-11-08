@@ -1,13 +1,13 @@
 var React = require('react');
 
 
-var BitcoinPanel = require('./Services/BitcoinPanel');
-var ShapeShiftPanel = require('./Services/ShapeShiftPanel');
-var CirclePanel = require('./Services/CirclePanel');
-var CoinbasePanel = require('./Services/CoinbasePanel');
-var BitcoinProtocolHandlerPanel = require('./Services/BitcoinProtocolHandlerPanel')
+var BitcoinPanel = require('./BitcoinPanel');
+var ShapeShiftPanel = require('./ShapeShiftPanel');
+var CirclePanel = require('./CirclePanel');
+var CoinbasePanel = require('./CoinbasePanel');
+var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel')
 
-var ListGroupItem = require('./ListGroupItem')
+var ListGroupItem = require('.././ListGroupItem')
 
 var IndexPanel = React.createClass({
   selectPanelHandler(panel) {
