@@ -1,6 +1,7 @@
 var React = require('react');
 
-var Rate = require('./Rate')
+var Rate = require('./Rate');
+var Status = require('./Status');
 
 var PaymentRequest = React.createClass({
 	componentWillMount() {
@@ -86,7 +87,9 @@ var PaymentRequest = React.createClass({
 					</div>
 
 					<div className="row">
-						<div className='col-xs-8'>{this.props.request.status}</div>
+						<div className='col-xs-8'>
+							<Status request={ this.props.request } />
+						</div>
 						<div className='col-xs-4 text-xs-right'>
 							<Rate request={ this.props.request } />
 						</div>

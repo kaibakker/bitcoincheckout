@@ -11,7 +11,7 @@ var PanelController = React.createClass({
     this.setState({ panel: panel })
   },
   goToIndex() {
-    this.setState({ panel: IndexPanel })
+    this.setPanel(IndexPanel)
   },
   setRequest(request) {
     this.props.app.setRequest(request)
