@@ -43,7 +43,7 @@ var Rate = React.createClass({
 
     this.setState({ rates: rates, selectedRate: selectedRate })
   },
-  
+
 	render() {
     return (
 			<div>{this.state.selectedRate && this.state.selectedRate.toFixed(2) + " " + this.state.selectedSymbol}</div>

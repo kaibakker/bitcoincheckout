@@ -4,12 +4,16 @@ var Rate = require('./Rate');
 var Status = require('./Status');
 
 var PaymentRequest = React.createClass({
+	getInitialState() {
+		console.log(this.props.request)
+		return {};
+	},
 	componentWillMount() {
     this.checkBitcoinAddress(this.updateTransactionStatus)
 	},
 
 	updateTransactionStatus(data) {
-		this.props.app.setRequest({ totalTransactionsReceivedOnAddress: data.n_tx + data.unconfirmed_n_tx })
+		this.props.app.updateRequest({ totalTransactionsReceivedOnAddress: data.n_tx + data.unconfirmed_n_tx })
 	},
 
 

@@ -9,7 +9,7 @@ var CirclePanel = React.createClass({
       <div className="card">
         <div className="card-header">
           Pay with Circle
-          <span className="redirect" onClick={() => this.props.panelController.goToIndex()}>change</span>
+          <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
         </div>
         <div className="list-group-item">
           <p>Circle provides an easy way to connect your bankaccount or creditcard to bitcoin</p>

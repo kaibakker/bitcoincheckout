@@ -5,11 +5,12 @@ var PaymentRequest = require('./PaymentRequest');
 
 var PanelController = require('./PanelController');
 
-
+var IndexPanel = require('./IndexPanel');
 
 var App = React.createClass({
 	getInitialState(){
 		return {
+			panel: IndexPanel,
 			request: {
 				address: '124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB',
 				amount: 0.01,
@@ -31,7 +32,17 @@ var App = React.createClass({
 			this.setState({request: request})
 		}
 	},
+	updateRequest(request) {
+		var newRequest = this.state.request;
 
+		for (var property in request) {
+      if (request.hasOwnProperty(property)) {
+        newRequest[property] = request[property];
+      }
+    }
+
+		this.setState({request: newRequest})
+	},
 	setRequest(request) {
 		var newRequest = this.state.request;
 
@@ -67,19 +78,24 @@ var App = React.createClass({
 
 
 
-	addToTransactions(transaction) {
-		// var transactions = localStorage.getItem('transactions')
 
-		localStorage.setItem(this.state.request.address, this.state.request.blockHeight)
+  setPanel(panel) {
+    this.setState({ panel: panel })
+  },
+  goToIndex() {
+    this.setPanel(IndexPanel)
+  },
+
+	request() {
+		return this.state.request;
 	},
-
 
 	render() {
 		return (
 			<div>
 				<PaymentRequest request={this.state.request} app={this} />
 
-				<PanelController request={this.state.request} app={this}/>
+				<PanelController request={this.state.request} panel={this.state.panel} app={this}/>
 			</div>
 		)
 	}

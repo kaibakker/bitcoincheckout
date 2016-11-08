@@ -8,7 +8,7 @@ var BitcoinPanel = React.createClass({
       <div className="card">
         <div className="card-header">
           Pay with Bitcoin Address
-          <span className="redirect" onClick={() => this.props.panelController.goToIndex()}>change</span>
+          <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
         </div>
 
         <div className="list-group-item">
