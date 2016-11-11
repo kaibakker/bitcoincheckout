@@ -53,9 +53,11 @@ var ShapeShiftPanel = React.createClass({
       {"name": "Zcash","symbol": "ZEC","image": "https://shapeshift.io/images/coins/zcash.png","status": "available"}
     ]}
   },
+
   componentWillMount() {
     // this.getMarkets();
   },
+
   getMarkets() {
     var self = this;
 		fetch('https://shapeshift.io/getcoins')
@@ -78,7 +80,8 @@ var ShapeShiftPanel = React.createClass({
 			});
 		});
   },
-  send_to_shapeshift(currency) {
+
+  redirectToShapeShift(currency) {
 
     var myInit = {
       method: 'POST',
@@ -116,8 +119,8 @@ var ShapeShiftPanel = React.createClass({
       });
     })
   },
+
   render(){
-    var self = this;
 		return (
       <div className="card">
         <div className="card-header">
@@ -125,7 +128,7 @@ var ShapeShiftPanel = React.createClass({
           <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
         </div>
         { this.state.coins.map(function (coin, index) {
-          return <ListGroupItem onClick={() => this.send_to_shapeshift(coin.symbol)} name={coin.name} redirect={coin.symbol} image={coin.image} />
+          return <ListGroupItem onClick={() => this.redirectToShapeShift(coin.symbol)} name={coin.name} redirect={coin.symbol} image={coin.image} />
         }, this) }
       </div>
 		);

@@ -20,9 +20,16 @@ var BitcoinProtocolHandlerPanel = React.createClass({
 
 
           <p>Check yout protocol hanlder through one of the following payment link.</p>
-
-          { this.props.request && <a href={ this.props.request.bitcoinURI }>Redirect to current request though a bitcoin handler</a>}
-  			</div>
+        </div>
+        { this.props.request && <a href={ this.props.request.bitcoinURI } className="list-group-item">
+          Redirect to current request though a bitcoin handler
+        </a> }
+        <a href="bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit" className="list-group-item">
+          Send us a testnet bitcoin donation
+        </a>
+        <a href="bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit" className="list-group-item">
+          Send us a bitcoin donation
+        </a>
       </div>
 		);
 	}

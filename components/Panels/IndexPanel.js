@@ -21,7 +21,7 @@ var IndexPanel = React.createClass({
         <ListGroupItem onClick={this.selectPanelHandler(CoinbasePanel)} name='Coinbase' image='assets/images/coinbase.png'/>
         <ListGroupItem onClick={this.selectPanelHandler(CirclePanel)} name='Circle' />
         <ListGroupItem onClick={this.selectPanelHandler(ShapeShiftPanel)} name='ShapeShift' image='assets/images/shapeshift.png'/>
-        <ListGroupItem onClick={this.selectPanelHandler(BitcoinProtocolHandlerPanel)} name='BitcoinProtocolHandlerPanel' />
+        <ListGroupItem onClick={this.selectPanelHandler(BitcoinProtocolHandlerPanel)} name='Bitcoin Payment Handler' />
 
       </div>
     )
