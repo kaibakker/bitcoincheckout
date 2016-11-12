@@ -1,5 +1,7 @@
 var React = require('react');
 
+var CardHeader = require('.././CardHeader');
+
 var CirclePanel = React.createClass({
   handler_url() {
     return 'https://www.circle.com/send?paymentURL=' + encodeURIComponent(this.props.request.bitcoinURI)
@@ -7,10 +9,8 @@ var CirclePanel = React.createClass({
   render(){
 		return (
       <div className="card">
-        <div className="card-header">
-          Pay with Circle
-          <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
-        </div>
+        <CardHeader title='Pay with Circle' app={ this.props.app } />
+
         <div className="list-group-item">
           <p className="">Circle provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
           <div className="text-xs-right">

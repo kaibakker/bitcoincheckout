@@ -1,5 +1,7 @@
 var React = require('react');
 
+var CardHeader = require('.././CardHeader')
+
 var BitcoinProtocolHandlerPanel = React.createClass({
   registerProtocolHandler() {
     navigator.registerProtocolHandler("bitcoin", "index.html?%s", "Bitcoin handler");
@@ -7,11 +9,7 @@ var BitcoinProtocolHandlerPanel = React.createClass({
   render(){
 		return (
       <div className="card">
-        <div className="card-header">
-          Bitcoin Payment URLs
-
-          <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
-        </div>
+        <CardHeader title='Bitcoin payment URLs' app={ this.props.app } />
 
   			<div className="list-group-item">
           <p>

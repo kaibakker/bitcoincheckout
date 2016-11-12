@@ -1,15 +1,13 @@
 var React = require('react');
 
 var QRCode = require('qrcode.react');
+var CardHeader = require('.././CardHeader');
 
 var BitcoinPanel = React.createClass({
   render() {
 		return (
       <div className="card">
-        <div className="card-header">
-          Pay with Bitcoin Address
-          <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
-        </div>
+        <CardHeader title='Pay to Bitcoin Address' app={ this.props.app } />
 
         <div className="list-group-item">
           <a href={this.props.request.bitcoinURI}>

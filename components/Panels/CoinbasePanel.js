@@ -1,7 +1,7 @@
 var React = require('react');
 
 
-
+var CardHeader = require('.././CardHeader');
 
 var CoinbasePanel = React.createClass({
   handler_url() {
@@ -10,10 +10,7 @@ var CoinbasePanel = React.createClass({
   render(){
 		return (
 			<div className="card">
-        <div className="card-header">
-          Pay with Coinbase
-          <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
-        </div>
+        <CardHeader title='Pay with Coinbase' app={ this.props.app } />
 
         <div className="list-group-item">
           <div className="m-x-auto qrcode">

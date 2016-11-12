@@ -6,8 +6,9 @@
  
 var React = require('react');
 
+var CardHeader = require('.././CardHeader');
 
-var ListGroupItem = require('./../ListGroupItem')
+var ListGroupItem = require('./../ListGroupItem');
 
 var ShapeShiftPanel = React.createClass({
   getInitialState() {
@@ -123,11 +124,8 @@ var ShapeShiftPanel = React.createClass({
   render(){
 		return (
       <div className="card">
-        <div className="card-header">
-          <img src='assets/images/shapeshift.png' className='list-group-item-image' />
-          Pay with ShapeShift
-          <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
-        </div>
+        <CardHeader title='Pay with ShapeShift' app={ this.props.app } />
+
         <div className="card-block">
           Select the cryptocurrency you would like to pay with and you will be send to shapeshift.
         </div>
