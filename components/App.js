@@ -73,10 +73,8 @@ var App = React.createClass({
 	},
 
 	requestIsValid(request) {
-		return request.address != undefined && request.amount != undefined && request.label != undefined
+		return request.address != undefined && request.amount != undefined
 	},
-
-
 
 
   setPanel(panel) {

@@ -5,7 +5,9 @@ var BitcoinPanel = require('./BitcoinPanel');
 var ShapeShiftPanel = require('./ShapeShiftPanel');
 var CirclePanel = require('./CirclePanel');
 var CoinbasePanel = require('./CoinbasePanel');
-var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel')
+var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
+var SharePanel = require('./SharePanel');
+
 
 var ListGroupItem = require('.././ListGroupItem')
 
@@ -22,6 +24,7 @@ var IndexPanel = React.createClass({
         <ListGroupItem onClick={this.selectPanelHandler(CirclePanel)} name='Circle' />
         <ListGroupItem onClick={this.selectPanelHandler(ShapeShiftPanel)} name='ShapeShift' image='assets/images/shapeshift.png'/>
         <ListGroupItem onClick={this.selectPanelHandler(BitcoinProtocolHandlerPanel)} name='Bitcoin Payment Handler' />
+        <ListGroupItem onClick={this.selectPanelHandler(SharePanel)} name='Ask someone else to pay' />
 
       </div>
     )
