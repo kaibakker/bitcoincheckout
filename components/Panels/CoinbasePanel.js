@@ -19,8 +19,8 @@ var CoinbasePanel = React.createClass({
           <div className="m-x-auto qrcode">
             <img src='assets/images/coinbase.png' className="icon" />
           </div>
-          <p>Coinbase provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
-          <div className="text-md-right">
+          <p className="">Coinbase provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
+          <div className="text-xs-right">
             <a href={this.handler_url()} className="btn btn-primary">send to Coinbase</a>
           </div>
         </div>

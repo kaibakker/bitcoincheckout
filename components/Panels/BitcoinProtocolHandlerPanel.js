@@ -8,15 +8,16 @@ var BitcoinProtocolHandlerPanel = React.createClass({
 		return (
       <div className="card">
         <div className="card-header">
-          Set as bitcoin payment handler
+          Bitcoin Payment URLs
+
           <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
         </div>
 
   			<div className="list-group-item">
           <p>
-            Want to add bitcoincheckout.com to become your payment handler?
+            You can set up Bitcoin Checkout to handle all bitcoin payment links on the internet.
           </p>
-          <a onClick={this.registerProtocolHandler} href="#" className='btn btn-primary'>Register protocol handler</a>
+          <a onClick={this.registerProtocolHandler} href="#" className='btn btn-primary'>Add link handler to your browser</a>
 
 
           <p>Check yout protocol hanlder through one of the following payment link.</p>

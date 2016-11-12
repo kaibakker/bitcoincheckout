@@ -18,7 +18,7 @@ var BitcoinPanel = React.createClass({
             </div>
           </a>
 
-          <div className="text-sm-center">
+          <div className="text-xs-center">
             Send exactly <code>{ this.props.request.amount }</code> to this address <code>{ this.props.request.address }</code>
           </div>
         </div>

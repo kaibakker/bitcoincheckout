@@ -12,8 +12,8 @@ var CirclePanel = React.createClass({
           <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
         </div>
         <div className="list-group-item">
-          <p>Circle provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
-          <div className="text-md-right">
+          <p className="">Circle provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
+          <div className="text-xs-right">
             <a href={this.handler_url()} className="btn btn-primary">send to Circle</a>
           </div>
         </div>

@@ -124,8 +124,12 @@ var ShapeShiftPanel = React.createClass({
 		return (
       <div className="card">
         <div className="card-header">
+          <img src='assets/images/shapeshift.png' className='list-group-item-image' />
           Pay with ShapeShift
           <span className="redirect" onClick={() => this.props.app.goToIndex()}>change</span>
+        </div>
+        <div className="card-block">
+          Select the cryptocurrency you would like to pay with and you will be send to shapeshift.
         </div>
         { this.state.coins.map(function (coin, index) {
           return <ListGroupItem onClick={() => this.redirectToShapeShift(coin.symbol)} name={coin.name} redirect={coin.symbol} image={coin.image} />
