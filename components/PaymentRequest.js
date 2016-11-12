@@ -85,7 +85,7 @@ var PaymentRequest = React.createClass({
 			<div className="card">
 				<div className="card-header">
 					Bitcoin Checkout
-					<span className="redirect" onClick={this.toggleInfo}>info</span>
+					<span className="redirect" onClick={this.toggleInfo}>{ this.state.info ? 'less' : 'more'}</span>
 				</div>
 
 				<div className="card-block blue-block">
