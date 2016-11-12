@@ -108,7 +108,7 @@ var PaymentRequest = React.createClass({
 							to: { this.props.request.address }
 						</div>
 						<div className='col-xs-12'>
-							to: { this.props.request.network }
+							network: { this.props.request.network }
 						</div>
 
 					</div> }
