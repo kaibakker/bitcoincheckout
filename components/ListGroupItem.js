@@ -6,7 +6,7 @@ var ListGroupItem = React.createClass({
     if(this.props.onClick) {
   		return (
   			<a className="list-group-item" onClick={this.props.onClick}>
-          { <img src={this.props.image} className='list-group-item-image'/> }
+          { this.props.image && <img src={this.props.image} className='list-group-item-image'/> }
           { this.props.name }
           { this.props.redirect && <span className='redirect'> { this.props.redirect } </span>}
         </a>
@@ -14,7 +14,7 @@ var ListGroupItem = React.createClass({
     } else {
       return (
         <div className="list-group-item">
-          { <img src={this.props.image} className='list-group-item-image'/> }
+          { this.props.image && <img src={this.props.image} className='list-group-item-image'/> }
           { this.props.name }
           { this.props.redirect && <span className='redirect'> { this.props.redirect } </span>}
         </div>

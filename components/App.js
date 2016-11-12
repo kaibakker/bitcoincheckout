@@ -62,7 +62,7 @@ var App = React.createClass({
 		console.log(uri)
 		if(uri != '') {
 			var params = uri.split('?')
-			request.address = params[0].substring(8);
+			request.address = params[0].substring(10);
 
 		  params[1].split("&").forEach(function(part) {
 		    var item = part.split("=");
