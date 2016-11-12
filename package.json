@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "moment": "^2.10.2",
+    "octicons": "^5.0.1",
     "react": "^0.13.2"
   },
   "devDependencies": {

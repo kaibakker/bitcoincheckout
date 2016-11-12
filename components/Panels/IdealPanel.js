@@ -14,7 +14,6 @@ var IdealPanel = React.createClass({
 
         <div className="list-group-item">
           <p className="">iDEAL is a online payment method for the Netherlands, we are stil looking for a company we can reference to to make this working</p>
-
         </div>
 			</div>
 		);

@@ -85,22 +85,23 @@ var PaymentRequest = React.createClass({
 			<div className="card">
 				<div className="card-header">
 					Bitcoin Checkout
-					<span className="redirect" onClick={this.toggleInfo}>{ this.state.info ? 'less' : 'more'}</span>
+					<span className="redirect development" onClick={this.toggleInfo}>{ this.state.info ? 'less' : 'more'}</span>
 				</div>
 
 				<div className="card-block blue-block">
 					<div className="row">
 						<div className='col-xs-8'>{this.props.request.label}</div>
-						<div className='col-xs-4 text-xs-right'>{this.props.request.amount} BTC</div>
-					</div>
-
-					<div className="row">
-						<div className='col-xs-8'>
-							<Status request={ this.props.request } />
-						</div>
+						<div className='col-xs-4 text-xs-right development'>{this.props.request.amount} BTC</div>
 						<div className='col-xs-4 text-xs-right'>
 							<Rate request={ this.props.request } />
 						</div>
+					</div>
+
+					<div className="row development">
+						<div className='col-xs-8'>
+							<Status request={ this.props.request } />
+						</div>
+
 					</div>
 
 					{ this.state.info && <div className="row">
