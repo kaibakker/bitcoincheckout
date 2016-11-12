@@ -96,6 +96,9 @@ var App = React.createClass({
 				<PaymentRequest request={this.state.request} app={this} />
 
 				<PanelController request={this.state.request} panel={this.state.panel} app={this}/>
+				<a href={ this.state.request.redirect_to }>
+					cancel
+				</a>
 			</div>
 		)
 	}
