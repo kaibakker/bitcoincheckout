@@ -76,7 +76,6 @@ var App = React.createClass({
 		return request.address != undefined && request.amount != undefined
 	},
 
-
   setPanel(panel) {
     this.setState({ panel: panel })
   },
@@ -86,6 +85,9 @@ var App = React.createClass({
 
 	request() {
 		return this.state.request;
+	},
+	bitcoinURI() {
+		return 'bitcoin:' + this.state.request.address + '?amount=' + this.state.request.amount + '&label=' + this.state.request.label
 	},
 
 	render() {
