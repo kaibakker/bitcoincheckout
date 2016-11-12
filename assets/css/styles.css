@@ -1,14 +1,61 @@
 .container {
-	max-width: 980px;
-	text-align: center;
-	margin: 20px auto;
+	max-width: 800px;
+
+	padding: 0;
+
 }
 
 
+
+.card {
+	border: none !important;
+	border-radius: 0px;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+span.redirect {
+  text-align: right;
+  float: right;
+}
+
+span.redirect:hover {
+  text-decoration: underline;
+}
+.card-header, .card-header:first-child {
+	border-radius: 0px;
+	border: none !important;
+}
+.qrcode {
+	width: 128px;
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+
+.list-item:hover {
+	background-color: aliceblue;
+}
+/* bootstrap changes */
+/*
+.list-group {
+	padding: 0;
+}*/
+.list-group-item {
+	border-left: none;
+	border-right: none;
+}
+/* end */
+
+body {
+	background-color: #ffd;
+}
+
 section {
-  background: aliceblue;
-  border-radius: 10px;
-	padding: 15px;
+  background: white;
 }
 
 h1 {
@@ -89,19 +136,10 @@ h1 {
 	margin: 0 auto;
 }
 
-.list-group {
-	padding: 0 15px;
-	margin-top: 50px;
+.icon {
+	width: 128px;
 }
 
-.list-group-item {
-	position: relative;
-	padding: 10px 20px;
-}
-
-a.list-group-item {
-	cursor: pointer;
-}
 
 a.list-group-item:hover {
 	background-color: #F7FBFF;
@@ -119,4 +157,14 @@ a.list-group-item span.createdAt {
 	display: block;
 	color: #969FA8;
 	z-index: -1;
+}
+
+.list-group-item-image {
+	width: 20px;
+	height: 20px;
+	margin-right: 15px;
+}
+
+.card-header {
+	border: none
 }

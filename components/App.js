@@ -1,70 +1,101 @@
 var React = require('react');
 
-var Search = require('./Search');
+
 var PaymentRequest = require('./PaymentRequest');
-var BitcoinPaymentURLPanel = require('./BitcoinPaymentURLPanel');
-var BitcoinQRCodePanel = require('./BitcoinQRCodePanel');
-var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
+
+var PanelController = require('./PanelController');
+
+var IndexPanel = require('./Panels/IndexPanel');
 
 var App = React.createClass({
-
 	getInitialState(){
-
-		// Extract the favorite locations from local storage
-		window.location.search.replace("?", "");
-
-		// Nobody would get mad if we center it on Paris by default
-
 		return {
-			currentRequest: null,
+			panel: IndexPanel,
+			request: {
+				address: '124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB',
+				amount: 0.01,
+				label: 'Donate to Bitcoin Checkout',
+				bitcoinURI: "bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit",
+        totalTransactionsReceivedOnAddress: 0,
+        status: "unpaid",
+				network: 'main'
+			},
 		};
 	},
 
+	// from bitcoin payment request
+
 	componentWillMount() {
-		var value = decodeURIComponent(window.location.search.replace("?", ""));
-		this.setBitcoinPaymentRequest(value);
+		request = this.makeRequestFromProtocolURI()
+
+		if(this.requestIsValid(request)) {
+			this.setState({request: request})
+		}
+	},
+	updateRequest(request) {
+		var newRequest = this.state.request;
+
+		for (var property in request) {
+      if (request.hasOwnProperty(property)) {
+        newRequest[property] = request[property];
+      }
+    }
+
+		this.setState({request: newRequest})
+	},
+	setRequest(request) {
+		var newRequest = this.state.request;
+
+		for (var property in request) {
+      if (request.hasOwnProperty(property)) {
+        newRequest[property] = request[property];
+      }
+    }
+
+		this.setState({request: newRequest})
 	},
 
-	fromBitcoinPaymentRequest(url) {
+	makeRequestFromProtocolURI() {
+		var uri = decodeURIComponent(window.location.search.replace("?", ""));
+
 	  var request = {};
+		console.log(uri)
+		if(uri != '') {
+			var params = uri.split('?')
+			request.address = params[0].substring(8);
 
-		var params = url.split('?')
-		request['address'] = params[0].substring(8);
-
-	  params[1].split("&").forEach(function(part) {
-	    var item = part.split("=");
-	    request[item[0]] =  item[1];
-	  });
+		  params[1].split("&").forEach(function(part) {
+		    var item = part.split("=");
+		    request[item[0]] =  item[1];
+		  });
+		}
 	  return request;
 	},
 
-
-	setBitcoinPaymentRequest(uri){
-		this.setState( { currentRequest: this.fromBitcoinPaymentRequest(uri) } )
+	requestIsValid(request) {
+		return request.address != undefined && request.amount != undefined
 	},
 
-	render(){
 
+  setPanel(panel) {
+    this.setState({ panel: panel })
+  },
+  goToIndex() {
+    this.setPanel(IndexPanel)
+  },
+
+	request() {
+		return this.state.request;
+	},
+
+	render() {
 		return (
-
 			<div>
-				<h1>Viabitco.in</h1>
+				<PaymentRequest request={this.state.request} app={this} />
 
-				<section>
-					<a href='bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr' > bitcoin link</a>
-				</section>
-				
-				<PaymentRequest request={this.state.currentRequest} />
-
-				<BitcoinPaymentURLPanel request={this.state.currentRequest} />
-
-				<BitcoinQRCodePanel request={this.state.currentRequest} />
-
-				<BitcoinProtocolHandlerPanel />
-
+				<PanelController request={this.state.request} panel={this.state.panel} app={this}/>
 			</div>
-
-		);
+		)
 	}
 
 });
