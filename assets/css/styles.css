@@ -1,36 +1,23 @@
 .container {
 	max-width: 800px;
-	padding: 0;
-
-}
-.container-mobile {
-	padding-top: 40px;
+	padding-top: 20px
 }
 
 @media (max-width: 765px) {
-    .container-mobile {
-        padding-left: 0px;
-        padding-right: 0px;
-				padding-top: 0px;
-    }
+  .container-mobile {
+    padding: 0px;
+  }
 }
 
-.development {
-	display: none;
-}
 body {
 	background-color: #d9edf9;
 }
 
 .info {
 	color: #222;
-	padding: 20px;
 }
 
-.backbutton {
-	float: left;
-	width: 0;
-}
+
 
 
 .card {
@@ -75,14 +62,6 @@ span.redirect:hover {
 }
 /* end */
 
-
-section {
-  background: white;
-}
-
-h1 {
-	margin-bottom: 20px;
-}
 
 
 .icon {
