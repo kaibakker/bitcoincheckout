@@ -5,7 +5,7 @@ var CardHeader = require('.././CardHeader');
 
 var SharePanel = React.createClass({
   handlerURL() {
-    return 'https://kaibakker.github.io/bitcoincheckout/?u=' + encodeURIComponent(this.props.app.bitcoinURI())
+    return 'https://kaibakker.github.io/bitcoincheckout/?u=' + encodeURIComponent(this.props.app.request.bitcoinURI)
   },
   render(){
 		return (
@@ -18,7 +18,7 @@ var SharePanel = React.createClass({
           <a href={ this.handlerURL() }>
             send permanent request link
           </a>
-          
+
         </div>
 			</div>
 		);
