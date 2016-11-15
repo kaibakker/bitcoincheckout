@@ -76,47 +76,41 @@ var PaymentRequest = React.createClass({
 		});
 	},
 
-	toggleInfo(e) {
-		this.setState({ info: !this.state.info });
-	},
 
 	render() {
 		return (
 			<div className="card">
 				<div className="card-header">
 					Bitcoin Checkout
-					{ this.props.request.network == 'testnet' &&
-						<span className="redirect" onClick={this.toggleInfo}>{ this.state.info ? 'less' : 'more'}</span>
-					}
 				</div>
 
-				<div className="card-block blue-block">
+				<div className="card-block">
 					<div className="row">
-						<div className='col-xs-8'>{this.props.request.label}</div>
-						{ this.props.request.network == 'testnet' &&
-							<div className='col-xs-4 text-xs-right'>{this.props.request.amount} BTC</div>
-						}
+						<div className='col-xs-8'>{ this.props.request.label }</div>
+
 						<div className='col-xs-4 text-xs-right'>
 							<Rate request={ this.props.request } />
 						</div>
 					</div>
 
-					{ this.props.request.network == 'testnet' && <div className="row">
-						<div className='col-xs-8'>
-							<Status request={ this.props.request } />
-						</div>
+					{ this.props.request.network == 'testnet' &&
+						<div className="row">
+							<div className='col-xs-4 offset-xs-8 text-xs-right'>
+								{this.props.request.amount} BTC
+							</div>
+							<div className='col-xs-8'>
+								Status: <Status request={ this.props.request } />
+							</div>
 
-					</div>}
 
-					{ this.state.info && <div className="row">
-						<div className='col-xs-12'>
-							to: { this.props.request.address }
+							<div className='col-xs-12'>
+								to: { this.props.request.address }
+							</div>
+							<div className='col-xs-12'>
+								network: { this.props.request.network }
+							</div>
 						</div>
-						<div className='col-xs-12'>
-							network: { this.props.request.network }
-						</div>
-
-					</div> }
+					}
 				</div>
 			</div>
 		);

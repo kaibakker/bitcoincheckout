@@ -7,7 +7,6 @@ var CirclePanel = require('./Panels/CirclePanel');
 var CoinbasePanel = require('./Panels/CoinbasePanel');
 
 
-var DevelopmentPanel = require('./Panels/DevelopmentPanel');
 
 
 var ListGroupItem = require('./ListGroupItem')
@@ -18,17 +17,15 @@ var IndexPanel = React.createClass({
   },
   render() {
     return (
-      <div>
-        <div className="card">
-          <div className="card-header">Choose your payment type</div>
-          <ListGroupItem onClick={this.selectPanelHandler(BitcoinPanel)} name='Bitcoin Address' image='assets/images/bitcoin.png' />
-          <ListGroupItem onClick={this.selectPanelHandler(CoinbasePanel)} name='Coinbase' image='assets/images/coinbase.png' />
-          <ListGroupItem onClick={this.selectPanelHandler(CirclePanel)} name='Circle' image='assets/images/circle.png' />
-          <ListGroupItem onClick={this.selectPanelHandler(ShapeShiftPanel)} name='ShapeShift' image='assets/images/shapeshift.png' />
-        </div>
 
-        <DevelopmentPanel request={this.props.request} panel={this.props.panel} app={this.props.app}/>
+      <div className="card">
+        <div className="card-header">Choose your payment type</div>
+        <ListGroupItem onClick={this.selectPanelHandler(BitcoinPanel)} name='Bitcoin Address' image='assets/images/bitcoin.png' />
+        <ListGroupItem onClick={this.selectPanelHandler(CoinbasePanel)} name='Coinbase' image='assets/images/coinbase.png' />
+        <ListGroupItem onClick={this.selectPanelHandler(CirclePanel)} name='Circle' image='assets/images/circle.png' />
+        <ListGroupItem onClick={this.selectPanelHandler(ShapeShiftPanel)} name='ShapeShift' image='assets/images/shapeshift.png' />
       </div>
+
     )
 	}
 });

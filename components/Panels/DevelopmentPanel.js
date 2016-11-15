@@ -4,7 +4,6 @@ var React = require('react');
 var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
 var SharePanel = require('./SharePanel');
 var CompletePanel = require('./CompletePanel');
-
 var IdealPanel = require('./IdealPanel');
 
 

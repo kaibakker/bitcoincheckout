@@ -6,6 +6,8 @@ var PaymentRequest = require('./PaymentRequest');
 var PanelController = require('./PanelController');
 
 var IndexPanel = require('./IndexPanel');
+var DevelopmentPanel = require('./Panels/DevelopmentPanel');
+
 
 var App = React.createClass({
 	getInitialState(){
@@ -108,16 +110,20 @@ var App = React.createClass({
 				<div>
 					<PaymentRequest request={this.state.request} app={this} />
 
-					<PanelController request={this.state.request} panel={this.state.panel} app={this}/>
+					<PanelController request={this.state.request} app={this}/>
+
+					{ this.state.request.network == 'testnet' &&
+						<DevelopmentPanel request={this.state.request} app={this.state.app}/>
+					}
 
 					<div className="btn-group">
 						<a href={ this.state.request.redirect_to_cancel } className="btn btn-info">
 							cancel
 						</a>
 
-						{ this.state.request.network == 'testnet' && <a className="btn btn-info">
-							more info
-						</a> }
+						{ this.state.request.network == 'testnet' &&
+							<a className="btn btn-info">more info</a>
+						}
 					</div>
 				</div>
 			)
