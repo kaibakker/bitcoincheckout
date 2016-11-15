@@ -95,17 +95,11 @@ var PaymentRequest = React.createClass({
 
 					{ this.props.request.network == 'testnet' &&
 						<div className="row">
-							<div className='col-xs-4 offset-xs-8 text-xs-right'>
-								{this.props.request.amount} BTC
-							</div>
 							<div className='col-xs-8'>
 								Status: <Status request={ this.props.request } />
 							</div>
 
 
-							<div className='col-xs-12'>
-								to: { this.props.request.address }
-							</div>
 							<div className='col-xs-12'>
 								network: { this.props.request.network }
 							</div>

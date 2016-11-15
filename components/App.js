@@ -112,9 +112,7 @@ var App = React.createClass({
 
 					<PanelController request={this.state.request} app={this}/>
 
-					{ this.state.request.network == 'testnet' &&
-						<DevelopmentPanel request={this.state.request} app={this.state.app}/>
-					}
+					
 
 					<div className="btn-group">
 						<a href={ this.state.request.redirect_to_cancel } className="btn btn-info">
