@@ -11,17 +11,19 @@ var App = React.createClass({
 	getInitialState(){
 		return {
 			panel: IndexPanel,
-			request: {
-				address: '124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB',
-				amount: 0.01,
-				label: 'Donate to Bitcoin Checkout',
-				bitcoinURI: "bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit",
-        totalTransactionsReceivedOnAddress: 0,
-        status: "unpaid",
-				network: 'main'
-			},
+			request: {}
 		};
 	},
+
+	// request: {
+	// 	address: '124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB',
+	// 	amount: 0.01,
+	// 	label: 'Donate to Bitcoin Checkout',
+	// 	bitcoinURI: "bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit",
+	//   totalTransactionsReceivedOnAddress: 0,
+	//   status: "unpaid",
+	// 	network: 'bitcoin'
+	// },
 
 	// from bitcoin payment request
 
@@ -32,6 +34,7 @@ var App = React.createClass({
 			this.setState({request: request})
 		}
 	},
+
 	updateRequest(request) {
 		var newRequest = this.state.request;
 
@@ -56,24 +59,33 @@ var App = React.createClass({
 	},
 
 	makeRequestFromProtocolURI() {
-		var uri = decodeURIComponent(window.location.search.replace("?", ""));
+		try {
+			var uri = decodeURIComponent(window.location.search.replace("?u=", ""));
 
-	  var request = {};
-		console.log(uri)
-		if(uri != '') {
-			var params = uri.split('?')
-			request.address = params[0].substring(10);
+		  var request = {};
+			console.log(uri);
 
-		  params[1].split("&").forEach(function(part) {
-		    var item = part.split("=");
-		    request[item[0]] =  item[1];
-		  });
+			if(uri != '') {
+				var [network_address, pairs] = uri.split('?')
+				var [network, address] = network_address.split(':')
+				request.network = network
+				request.address = address
+
+			  pairs.split('&').forEach(function(part) {
+			    var item = part.split("=");
+			    request[item[0]] =  item[1];
+			  });
+			}
+		  return request;
 		}
-	  return request;
+		catch(err) {
+		  console.log("Could not read request from Bitcoin Protocol link");
+			return {}
+		}
 	},
 
 	requestIsValid(request) {
-		return request.address != undefined && request.amount != undefined
+		return request && request.address != undefined && request.amount != undefined
 	},
 
   setPanel(panel) {
@@ -91,25 +103,32 @@ var App = React.createClass({
 	},
 
 	render() {
-		return (
-			<div>
-				<PaymentRequest request={this.state.request} app={this} />
+		if(this.state.request) {
+			return (
+				<div>
+					<PaymentRequest request={this.state.request} app={this} />
 
-				<PanelController request={this.state.request} panel={this.state.panel} app={this}/>
+					<PanelController request={this.state.request} panel={this.state.panel} app={this}/>
 
-				<div className="btn-group">
-					<a href={ this.state.request.redirect_to_cancel } className="btn btn-info">
-						cancel
-					</a>
+					<div className="btn-group">
+						<a href={ this.state.request.redirect_to_cancel } className="btn btn-info">
+							cancel
+						</a>
 
-					<a className="btn btn-info development">
-						more info
-					</a>
+						{ this.state.request.network == 'testnet' && <a className="btn btn-info">
+							more info
+						</a> }
+					</div>
 				</div>
-			</div>
-		)
+			)
+		} else {
+			return (
+				<div>
+					Error in payment
+				</div>
+			)
+		}
 	}
-
 });
 
 module.exports = App;
