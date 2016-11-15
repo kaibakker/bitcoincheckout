@@ -5,7 +5,7 @@ var PaymentRequest = require('./PaymentRequest');
 
 var PanelController = require('./PanelController');
 
-var IndexPanel = require('./Panels/IndexPanel');
+var IndexPanel = require('./IndexPanel');
 
 var App = React.createClass({
 	getInitialState(){
@@ -96,9 +96,16 @@ var App = React.createClass({
 				<PaymentRequest request={this.state.request} app={this} />
 
 				<PanelController request={this.state.request} panel={this.state.panel} app={this}/>
-				<a href={ this.state.request.redirect_to }>
-					cancel
-				</a>
+
+				<div className="btn-group">
+					<a href={ this.state.request.redirect_to_cancel } className="btn btn-info">
+						cancel
+					</a>
+
+					<a className="btn btn-info development">
+						more info
+					</a>
+				</div>
 			</div>
 		)
 	}
