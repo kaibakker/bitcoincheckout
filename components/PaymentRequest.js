@@ -76,17 +76,33 @@ var PaymentRequest = React.createClass({
 		});
 	},
 
+	toggleBuilder(event) {
+		return this.setState({ builder: !this.state.builder });
+	},
+
 
 	render() {
 		return (
 			<div className="card">
 				<div className="card-header">
 					Bitcoin Checkout
+
+					<a onClick={this.toggleBuilder}>{ this.state.builder ? "Show" : "Edit" }</a>
 				</div>
 
 				<div className="card-block">
 					<div className="row">
 						<div className='col-xs-8'>{ this.props.request.label }</div>
+
+						{ this.state.builder &&
+							<div className="form-group row">
+							  <label for="example-text-input" className="col-xs-5 col-form-label">Text</label>
+							  <div className="col-xs-7">
+							    <input className="form-control" type="text" value="Artisanal kale" id="example-text-input" onChange={ hits.changeLabel }/> 
+							  </div>
+							</div>
+						}
+
 
 						<div className='col-xs-4 text-xs-right'>
 							<Rate request={ this.props.request } />

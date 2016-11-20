@@ -10,7 +10,6 @@ var CardHeader = React.createClass({
           back
         </span>
         <div className='text-xs-center'>{ this.props.title }</div>
-
       </div>
     )
   }
