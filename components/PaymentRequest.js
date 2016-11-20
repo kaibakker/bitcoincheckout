@@ -9,11 +9,14 @@ var PaymentRequest = React.createClass({
 		return {};
 	},
 	componentWillMount() {
-    this.checkBitcoinAddress(this.updateTransactionStatus)
+    // this.checkBitcoinAddress(this.updateTransactionStatus)
 	},
 
 	updateTransactionStatus(data) {
-		this.props.app.updateRequest({ totalTransactionsReceivedOnAddress: data.n_tx + data.unconfirmed_n_tx })
+		this.props.store.dispatch({
+			type: 'UPDATE_N_TX_RECEIVED',
+			n_tx_received: data.n_tx + data.unconfirmed_n_tx
+		});
 	},
 
 
@@ -80,6 +83,11 @@ var PaymentRequest = React.createClass({
 		return this.setState({ builder: !this.state.builder });
 	},
 
+	changeLabel(event) {
+		console.log('nothing');
+		return null;
+	},
+
 
 	render() {
 		return (
@@ -98,7 +106,7 @@ var PaymentRequest = React.createClass({
 							<div className="form-group row">
 							  <label for="example-text-input" className="col-xs-5 col-form-label">Text</label>
 							  <div className="col-xs-7">
-							    <input className="form-control" type="text" value="Artisanal kale" id="example-text-input" onChange={ hits.changeLabel }/> 
+							    <input className="form-control" type="text" value="Artisanal kale" id="example-text-input" onChange={ this.changeLabel }/>
 							  </div>
 							</div>
 						}
@@ -126,5 +134,14 @@ var PaymentRequest = React.createClass({
 		);
 	}
 });
+
+
+// PaymentRequest.propTypes = {
+// 	address: React.PropTypes.string.isRequired,
+// 	amount: React.PropTypes.number.isRequired,
+// 	label: React.PropTypes.string.isRequired,
+//   setLabel: React.PropTypes.func.isRequired
+// }
+
 
 module.exports = PaymentRequest;

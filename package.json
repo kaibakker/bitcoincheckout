@@ -16,7 +16,9 @@
     "octicons": "^5.0.1",
     "qrcode.react": "^0.6.1",
     "react": "^0.14.8",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "browserify": "^9.0.8",
