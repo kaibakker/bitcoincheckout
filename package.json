@@ -1,5 +1,5 @@
 {
-  "name": "first-webapp-react",
+  "name": "getcheckout",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -15,7 +15,7 @@
     "moment": "^2.10.2",
     "octicons": "^5.0.1",
     "qrcode.react": "^0.6.1",
-    "react": "^0.14.8",
+    "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0"
