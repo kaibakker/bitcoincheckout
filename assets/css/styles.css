@@ -1,10 +1,32 @@
 .container {
 	max-width: 800px;
-
-	padding: 0;
-
+	padding-top: 20px
 }
 
+@media (max-width: 765px) {
+  .container-mobile {
+    padding: 0px;
+  }
+}
+label {
+	margin-bottom: 0
+}
+
+body {
+	background-color: #d9edf9;
+}
+.jumbotron {
+	background-color: #d9edf9;
+}
+
+.info {
+	color: #222;
+}
+
+.backbutton {
+	float: left;
+	width: 0;
+}
 
 
 .card {
@@ -12,7 +34,6 @@
 	border-radius: 0px;
 
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 span.redirect {
@@ -50,91 +71,7 @@ span.redirect:hover {
 }
 /* end */
 
-body {
-	background-color: #ffd;
-}
 
-section {
-  background: white;
-}
-
-h1 {
-	margin-bottom: 20px;
-}
-
-#geocoding_form {
-	margin: 40px auto 60px;
-}
-
-#address {
-	border-radius: 3px;
-}
-
-.input-group {
-	margin-left: 4%;
-}
-
-.glyphicon {
-	font-size: 18px;
-	z-index: 20;
-	cursor: pointer;
-}
-
-.glyphicon-search{
-	position: relative;
-	right: 30px;
-}
-
-.current-location {
-	margin-top: 30px;
-}
-
-#save-location {
-	display: inline;
-	margin: 10px auto;
-	line-height: 1.4;
-}
-
-.current-location .glyphicon-star,
-.current-location .glyphicon-star-empty {
-	display: inline-block;
-	margin-left: 10px;
-	font-size: 22px;
-	vertical-align: text-bottom;
-}
-
-.glyphicon-menu-right {
-	position: absolute;
-	top: 50%;
-	right: 10px;
-	margin-top: -9px;
-}
-
-.map-holder {
-	max-width: 500px;
-	height: 350px;
-	margin: 0 auto;
-	background-color: #FCFCFC;
-	position: relative;
-	border-radius: 2px;
-}
-
-.map-holder p {
-	position: absolute;
-	width: 84px;
-	height: 22px;
-	left: 50%;
-	top: 50%;
-	margin: -11px auto 0 -42px;
-	font-size: 20px;
-	color: #969FA8;
-}
-
-#map {
-	max-width: 500px;
-	height: 350px;
-	margin: 0 auto;
-}
 
 .icon {
 	width: 128px;

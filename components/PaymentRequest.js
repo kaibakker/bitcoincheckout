@@ -9,11 +9,14 @@ var PaymentRequest = React.createClass({
 		return {};
 	},
 	componentWillMount() {
-    this.checkBitcoinAddress(this.updateTransactionStatus)
+    // this.checkBitcoinAddress(this.updateTransactionStatus)
 	},
 
 	updateTransactionStatus(data) {
-		this.props.app.updateRequest({ totalTransactionsReceivedOnAddress: data.n_tx + data.unconfirmed_n_tx })
+		this.props.store.dispatch({
+			type: 'UPDATE_N_TX_RECEIVED',
+			n_tx_received: data.n_tx + data.unconfirmed_n_tx
+		});
 	},
 
 
@@ -76,46 +79,69 @@ var PaymentRequest = React.createClass({
 		});
 	},
 
-	toggleInfo(e) {
-		this.setState({ info: !this.state.info });
+	toggleBuilder(event) {
+		return this.setState({ builder: !this.state.builder });
 	},
+
+	changeLabel(event) {
+		console.log('nothing');
+		return null;
+	},
+
 
 	render() {
 		return (
 			<div className="card">
 				<div className="card-header">
 					Bitcoin Checkout
-					<span className="redirect" onClick={this.toggleInfo}>info</span>
+
+					<a onClick={this.toggleBuilder}>{ this.state.builder ? "Show" : "Edit" }</a>
 				</div>
 
-				<div className="card-block blue-block">
+				<div className="card-block">
 					<div className="row">
-						<div className='col-xs-8'>{this.props.request.label}</div>
-						<div className='col-xs-4 text-xs-right'>{this.props.request.amount} BTC</div>
-					</div>
+						<div className='col-xs-8'>{ this.props.request.label }</div>
 
-					<div className="row">
-						<div className='col-xs-8'>
-							<Status request={ this.props.request } />
-						</div>
+						{ this.state.builder &&
+							<div className="form-group row">
+							  <label for="example-text-input" className="col-xs-5 col-form-label">Text</label>
+							  <div className="col-xs-7">
+							    <input className="form-control" type="text" value="Artisanal kale" id="example-text-input" onChange={ this.changeLabel }/>
+							  </div>
+							</div>
+						}
+
+
 						<div className='col-xs-4 text-xs-right'>
 							<Rate request={ this.props.request } />
 						</div>
 					</div>
 
-					{ this.state.info && <div className="row">
-						<div className='col-xs-12'>
-							to: { this.props.request.address }
-						</div>
-						<div className='col-xs-12'>
-							to: { this.props.request.network }
-						</div>
+					{ this.props.request.network == 'testnet' &&
+						<div className="row">
+							<div className='col-xs-8'>
+								Status: <Status request={ this.props.request } />
+							</div>
 
-					</div> }
+
+							<div className='col-xs-12'>
+								network: { this.props.request.network }
+							</div>
+						</div>
+					}
 				</div>
 			</div>
 		);
 	}
 });
+
+
+// PaymentRequest.propTypes = {
+// 	address: React.PropTypes.string.isRequired,
+// 	amount: React.PropTypes.number.isRequired,
+// 	label: React.PropTypes.string.isRequired,
+//   setLabel: React.PropTypes.func.isRequired
+// }
+
 
 module.exports = PaymentRequest;

@@ -5,76 +5,76 @@ var PaymentRequest = require('./PaymentRequest');
 
 var PanelController = require('./PanelController');
 
-var IndexPanel = require('./Panels/IndexPanel');
+var IndexPanel = require('./IndexPanel');
+var DevelopmentPanel = require('./Panels/DevelopmentPanel');
+
 
 var App = React.createClass({
 	getInitialState(){
 		return {
-			panel: IndexPanel,
-			request: {
-				address: '124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB',
-				amount: 0.01,
-				label: 'Donate to Bitcoin Checkout',
-				bitcoinURI: "bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit",
-        totalTransactionsReceivedOnAddress: 0,
-        status: "unpaid",
-				network: 'main'
-			},
+			panel: IndexPanel
 		};
 	},
-
-	// from bitcoin payment request
 
 	componentWillMount() {
 		request = this.makeRequestFromProtocolURI()
 
-		if(this.requestIsValid(request)) {
-			this.setState({request: request})
-		}
+		this.props.store.dispatch({
+			type: 'NEW_REQUEST',
+			label: request.label,
+			amount: request.amount,
+			address: request.address,
+			redirect_to_cancel: request.redirect_to_cancel,
+			redirect_to_success: request.redirect_to_success,
+		});
+
 	},
-	updateRequest(request) {
-		var newRequest = this.state.request;
 
-		for (var property in request) {
-      if (request.hasOwnProperty(property)) {
-        newRequest[property] = request[property];
-      }
-    }
-
-		this.setState({request: newRequest})
-	},
-	setRequest(request) {
-		var newRequest = this.state.request;
-
-		for (var property in request) {
-      if (request.hasOwnProperty(property)) {
-        newRequest[property] = request[property];
-      }
-    }
-
-		this.setState({request: newRequest})
-	},
+	// updateRequest(request) {
+	// 	var newRequest = this.props.store.getState().request;
+	//
+	// 	for (var property in request) {
+  //     if (request.hasOwnProperty(property)) {
+  //       newRequest[property] = request[property];
+  //     }
+  //   }
+	//
+	// 	this.props.store.dispatch({
+	// 		type: 'ADD_REQUEST',
+	// 		label: label,
+	// 		amount: amount,
+	// 		address: address,
+	// 		redirect_to_cancel: request.redirect_to_cancel,
+	// 		redirect_to_success: request.redirect_to_success,
+	// 	});
+	// },
 
 	makeRequestFromProtocolURI() {
-		var uri = decodeURIComponent(window.location.search.replace("?", ""));
+		try {
+			var uri = decodeURIComponent(window.location.search.replace("?u=", ""));
 
-	  var request = {};
-		console.log(uri)
-		if(uri != '') {
-			var params = uri.split('?')
-			request.address = params[0].substring(8);
+		  var request = {};
+			console.log(uri);
 
-		  params[1].split("&").forEach(function(part) {
-		    var item = part.split("=");
-		    request[item[0]] =  item[1];
-		  });
+			if(uri != '') {
+				var [network_address, pairs] = uri.split('?')
+				var [network, address] = network_address.split(':')
+				request.network = network
+				request.address = address
+
+			  pairs.split('&').forEach(function(part) {
+			    var item = part.split("=");
+			    request[item[0]] =  item[1];
+			  });
+			}
+		  return request;
 		}
-	  return request;
+		catch(err) {
+		  console.log("Could not read request from Bitcoin Protocol link");
+			return {}
+		}
 	},
 
-	requestIsValid(request) {
-		return request.address != undefined && request.amount != undefined
-	},
 
 
   setPanel(panel) {
@@ -84,20 +84,39 @@ var App = React.createClass({
     this.setPanel(IndexPanel)
   },
 
-	request() {
-		return this.state.request;
-	},
+
+
 
 	render() {
-		return (
-			<div>
-				<PaymentRequest request={this.state.request} app={this} />
+		if(this.props.store.getState().request) {
+			return (
+			// 	<div>{this.props.store.getState().request.label}</div>
+			// )
+			// // return (
+				<div>
+					<PaymentRequest request={this.props.request} store={this.props.store} />
 
-				<PanelController request={this.state.request} panel={this.state.panel} app={this}/>
-			</div>
-		)
+					<PanelController request={this.props.request} store={this.props.store}/>
+
+					<div className="btn-group">
+						<a href={ this.props.store.getState().request.redirect_to_cancel } className="btn btn-info">
+							cancel
+						</a>
+
+						{ this.props.store.getState().request.network == 'testnet' &&
+							<a className="btn btn-info">more info</a>
+						}
+					</div>
+				</div>
+			)
+		} else {
+			return (
+				<div>
+					No valid request found
+				</div>
+			)
+		}
 	}
-
 });
 
 module.exports = App;

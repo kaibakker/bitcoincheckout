@@ -4,7 +4,7 @@ var React = require('react');
 var CardHeader = require('.././CardHeader');
 
 var CoinbasePanel = React.createClass({
-  handler_url() {
+  handlerUrl() {
     return 'https://www.coinbase.com/handler?u=' + encodeURIComponent(this.props.request.bitcoinURI)
   },
   render(){
@@ -18,7 +18,7 @@ var CoinbasePanel = React.createClass({
           </div>
           <p className="">Coinbase provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
           <div className="text-xs-right">
-            <a href={this.handler_url()} className="btn btn-primary">send to Coinbase</a>
+            <a href={this.handlerUrl()} className="btn btn-primary">send to Coinbase</a>
           </div>
         </div>
 			</div>
