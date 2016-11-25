@@ -94,9 +94,9 @@ var App = React.createClass({
 			// )
 			// // return (
 				<div>
-					<PaymentRequest request={this.props.request} store={this.props.store} />
+					<PaymentRequest request={this.props.store.getState().request} store={this.props.store} />
 
-					<PanelController request={this.props.request} store={this.props.store}/>
+					<PanelController request={this.props.store.getState().request} store={this.props.store}/>
 
 					<div className="btn-group">
 						<a href={ this.props.store.getState().request.redirect_to_cancel } className="btn btn-info">

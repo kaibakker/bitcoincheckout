@@ -16,7 +16,7 @@ const request = (state, action) => {
       if(action.address == undefined || action.amount == undefined) {
         return state
       }
-      request = {
+      var request = {
         id: action.id,
         label: action.label,
         amount: action.amount,
