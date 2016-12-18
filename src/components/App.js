@@ -1,6 +1,5 @@
 var React = require("react");
 
-
 var PaymentRequest = require("./PaymentRequest");
 
 var PanelController = require("./PanelController");
@@ -8,6 +7,7 @@ var PanelController = require("./PanelController");
 var IndexPanel = require("./IndexPanel");
 var DevelopmentPanel = require("./Panels/DevelopmentPanel");
 
+var makeRequestFromProtocolURI = require("helpers/get-request-object");
 
 var App = React.createClass({
     getInitialState(){
@@ -30,7 +30,7 @@ var App = React.createClass({
 	// from bitcoin payment request
 
     componentWillMount() {
-        var request = this.makeRequestFromProtocolURI();
+        var request = makeRequestFromProtocolURI();
 
         if(this.requestIsValid(request)) {
             this.setState({request: request});
@@ -48,6 +48,7 @@ var App = React.createClass({
 
         this.setState({request: newRequest});
     },
+
     setRequest(request) {
         var newRequest = this.state.request;
 
@@ -58,31 +59,6 @@ var App = React.createClass({
         }
 
         this.setState({request: newRequest});
-    },
-
-    makeRequestFromProtocolURI() {
-        try {
-            var uri = decodeURIComponent(window.location.search.replace("?u=", ""));
-
-    	    var request = {};
-
-
-            if(uri != "") {
-                var [network_address, pairs] = uri.split("?");
-                var [network, address] = network_address.split(":");
-                request.network = network;
-                request.address = address;
-
-                pairs.split("&").forEach(function(part) {
-                    var item = part.split("=");
-                    request[item[0]] =  item[1];
-                });
-            }
-    		return request;
-        }
-        catch(err) {
-            return {};
-        }
     },
 
     requestIsValid(request) {
