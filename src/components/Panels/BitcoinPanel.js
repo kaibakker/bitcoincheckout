@@ -3,7 +3,7 @@ var React = require("react");
 var QRCode = require("qrcode.react");
 var CardHeader = require(".././CardHeader");
 
-var { bitcoinURI } = require("../../utils/request_helpers");
+var { bitcoinURI } = require("../../../utils/request_helpers");
 
 var BitcoinPanel = React.createClass({
     render() {

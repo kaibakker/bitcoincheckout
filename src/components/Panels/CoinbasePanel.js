@@ -2,10 +2,11 @@ var React = require("react");
 
 
 var CardHeader = require(".././CardHeader");
+var { bitcoinURI } = require("../../../utils/request_helpers");
 
 var CoinbasePanel = React.createClass({
     handlerUrl() {
-        return "https://www.coinbase.com/handler?u=" + encodeURIComponent(this.props.request.bitcoinURI);
+        return "https://www.coinbase.com/handler?u=" + encodeURIComponent(bitcoinURI(this.props.request));
     },
     render(){
         return (

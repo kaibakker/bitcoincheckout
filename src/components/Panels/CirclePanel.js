@@ -2,7 +2,7 @@ var React = require("react");
 
 var CardHeader = require(".././CardHeader");
 
-var { bitcoinURI } = require("../../utils/request_helpers");
+var { bitcoinURI } = require("../../../utils/request_helpers");
 
 var CirclePanel = React.createClass({
     handlerUrl() {
