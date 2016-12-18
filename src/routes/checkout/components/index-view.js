@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import IndexPanel from '../../../components/IndexPanel'
-
+import IndexPanel from "components/IndexPanel";
 
 export default class IndexView extends Component {
     render() {
