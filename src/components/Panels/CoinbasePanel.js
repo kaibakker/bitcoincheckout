@@ -10,7 +10,7 @@ var CoinbasePanel = React.createClass({
     },
     render(){
         return (
-			<div className="card">
+			<div className="panel panel-checkout">
         <CardHeader title='Pay with Coinbase' app={ this.props.app } />
 
         <div className="list-group-item">
@@ -18,7 +18,7 @@ var CoinbasePanel = React.createClass({
             <img src='assets/images/coinbase.png' className="icon" />
           </div>
           <p className="">Coinbase provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
-          <div className="text-xs-right">
+          <div className="text-right">
             <a href={this.handlerUrl()} className="btn btn-primary">send to Coinbase</a>
           </div>
         </div>

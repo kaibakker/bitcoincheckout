@@ -10,7 +10,7 @@ var SharePanel = React.createClass({
     },
     render(){
         return (
-			<div className="card">
+			<div className="panel panel-checkout">
         <CardHeader title='Let someonelse pay' app={ this.props.app } />
 
         <div className="list-group-item">

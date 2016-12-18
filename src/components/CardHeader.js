@@ -4,12 +4,12 @@ var octicons = require("octicons");
 var CardHeader = React.createClass({
     render () {
         return (
-      <div className="card-header">
+      <div className="panel-heading">
         <span className='backbutton' onClick={() => this.props.app.goToIndex()}>
           { "" && <span dangerouslySetInnerHTML={ { __html: octicons["chevron-left"].toSVG() } } />}
           back
         </span>
-        <div className='text-xs-center'>{ this.props.title }</div>
+        <div className='text-center'>{ this.props.title }</div>
       </div>
         );
     }

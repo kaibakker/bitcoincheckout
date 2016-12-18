@@ -16,8 +16,8 @@ var DevelopmentPanel = React.createClass({
     render() {
         if(this.props.request.network == "testnet") {
             return (
-        <div className="card">
-          <div className="card-header">Under development</div>
+        <div className="panel panel-checkout">
+          <div className="panel-heading">Under development</div>
           <ListGroupItem onClick={this.selectPanelHandler(CompletePanel)} name='Test completion' />
           <ListGroupItem onClick={this.selectPanelHandler(BitcoinProtocolHandlerPanel)} name='Bitcoin Payment Handler' />
           <ListGroupItem onClick={this.selectPanelHandler(SharePanel)} name='Ask someone else to pay' />
