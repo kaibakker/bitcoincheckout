@@ -30,7 +30,7 @@ var App = React.createClass({
 	// from bitcoin payment request
 
     componentWillMount() {
-        request = this.makeRequestFromProtocolURI();
+        var request = this.makeRequestFromProtocolURI();
 
         if(this.requestIsValid(request)) {
             this.setState({request: request});
