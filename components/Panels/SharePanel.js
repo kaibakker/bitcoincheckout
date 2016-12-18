@@ -2,10 +2,11 @@ var React = require("react");
 
 var CardHeader = require(".././CardHeader");
 
+var { bitcoinURI } = require("../../utils/request_helpers");
 
 var SharePanel = React.createClass({
     handlerURL() {
-        return "https://kaibakker.github.io/bitcoincheckout/?u=" + encodeURIComponent(this.props.app.request.bitcoinURI);
+        return "https://kaibakker.github.io/bitcoincheckout/?u=" + encodeURIComponent(bitcoinURI(this.props.app.request));
     },
     render(){
         return (

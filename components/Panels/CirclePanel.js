@@ -2,9 +2,11 @@ var React = require("react");
 
 var CardHeader = require(".././CardHeader");
 
+var { bitcoinURI } = require("../../utils/request_helpers");
+
 var CirclePanel = React.createClass({
     handlerUrl() {
-        return "https://www.circle.com/send?paymentURL=" + encodeURIComponent(this.props.request.bitcoinURI);
+        return "https://www.circle.com/send?paymentURL=" + encodeURIComponent(bitcoinURI(this.props.request));
     },
     render(){
         return (

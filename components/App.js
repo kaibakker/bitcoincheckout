@@ -100,9 +100,7 @@ var App = React.createClass({
     request() {
         return this.state.request;
     },
-    bitcoinURI() {
-        return "bitcoin:" + this.state.request.address + "?amount=" + this.state.request.amount + "&label=" + this.state.request.label;
-    },
+    
 
     render() {
         if(this.state.request) {
@@ -112,7 +110,7 @@ var App = React.createClass({
 
 					<PanelController request={this.state.request} app={this}/>
 
-					
+
 
 					<div className="btn-group">
 						<a href={ this.state.request.redirect_to_cancel } className="btn btn-info">
