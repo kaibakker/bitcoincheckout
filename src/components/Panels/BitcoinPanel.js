@@ -3,6 +3,8 @@ var React = require("react");
 var QRCode = require("qrcode.react");
 var CardHeader = require(".././CardHeader");
 
+var { bitcoinURI } = require("../../utils/request_helpers");
+
 var BitcoinPanel = React.createClass({
     render() {
         return (
@@ -10,9 +12,9 @@ var BitcoinPanel = React.createClass({
         <CardHeader title='Pay to Bitcoin Address' app={ this.props.app } />
 
         <div className="list-group-item">
-          <a href={this.props.request.bitcoinURI}>
+          <a href={bitcoinURI(this.props.request)}>
             <div className="m-x-auto qrcode">
-              <QRCode value={this.props.request.bitcoinURI} />
+              <QRCode value={bitcoinURI(this.props.request)} />
             </div>
           </a>
 

@@ -64,8 +64,8 @@ var App = React.createClass({
         try {
             var uri = decodeURIComponent(window.location.search.replace("?u=", ""));
 
-		  var request = {};
-            console.log(uri);
+    	    var request = {};
+
 
             if(uri != "") {
                 var [network_address, pairs] = uri.split("?");
@@ -73,15 +73,14 @@ var App = React.createClass({
                 request.network = network;
                 request.address = address;
 
-			  pairs.split("&").forEach(function(part) {
-			    var item = part.split("=");
-			    request[item[0]] =  item[1];
-			  });
+                pairs.split("&").forEach(function(part) {
+                    var item = part.split("=");
+                    request[item[0]] =  item[1];
+                });
             }
-		  return request;
+    		return request;
         }
         catch(err) {
-		  console.log("Could not read request from Bitcoin Protocol link");
             return {};
         }
     },
@@ -100,9 +99,7 @@ var App = React.createClass({
     request() {
         return this.state.request;
     },
-    bitcoinURI() {
-        return "bitcoin:" + this.state.request.address + "?amount=" + this.state.request.amount + "&label=" + this.state.request.label;
-    },
+
 
     render() {
         if(this.state.request) {
@@ -112,7 +109,7 @@ var App = React.createClass({
 
 					<PanelController request={this.state.request} app={this}/>
 
-					
+
 
 					<div className="btn-group">
 						<a href={ this.state.request.redirect_to_cancel } className="btn btn-info">

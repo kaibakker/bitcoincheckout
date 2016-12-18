@@ -2,6 +2,8 @@ var React = require("react");
 
 var CardHeader = require(".././CardHeader");
 
+var { bitcoinURI } = require("../../utils/request_helpers");
+
 var BitcoinProtocolHandlerPanel = React.createClass({
     registerProtocolHandler() {
         navigator.registerProtocolHandler("bitcoin", "index.html?%s", "Bitcoin handler");
@@ -20,7 +22,7 @@ var BitcoinProtocolHandlerPanel = React.createClass({
 
           <p>Check yout protocol hanlder through one of the following payment link.</p>
         </div>
-        { this.props.request && <a href={ this.props.request.bitcoinURI } className="list-group-item">
+        { this.props.request && <a href={ bitcoinURI(this.props.request) } className="list-group-item">
           Redirect to current request though a bitcoin handler
         </a> }
 
