@@ -68,6 +68,7 @@ var App = React.createClass({
     setPanel(panel) {
         this.setState({ panel: panel });
     },
+
     goToIndex() {
         this.setPanel(IndexPanel);
     },
@@ -75,7 +76,6 @@ var App = React.createClass({
     request() {
         return this.state.request;
     },
-
 
     render() {
         if(this.state.request) {

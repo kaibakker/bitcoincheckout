@@ -1,7 +1,7 @@
 let requestObject = null;
 
 function createRequestObject() {
-    var request = {};
+    var request = null;
     
     try {
         var uri = decodeURIComponent(window.location.search.replace("?u=", ""));
