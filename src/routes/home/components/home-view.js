@@ -8,7 +8,7 @@ export default class HomeView extends Component {
         return (
             <Row>
                 <Col md={12}>
-                    <div class="info">
+                    <div className="info">
                         <h1>Easy bitcoin integration</h1>
                         <h2>We provide a great bitcoin checkout service, fully opensource</h2>
                         <h4>Customers</h4>
@@ -18,10 +18,10 @@ export default class HomeView extends Component {
                                 componentClass={Link}
                                 to="/checkout?u=bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&label=Mastering Bitcoin&redirect_to_cancel=cancel.html&redirect_to_success=success.html">Go to Bitcoin Checkout</Button>
 
-                        <p><h4>Merchants</h4></p>
+                        <h4>Merchants</h4>
                         <p>We provide an easy way of accepting bitcoin, just a link from your wallet is enough. While you allow customers to pay With a wide foraity of payments. And thus an extra way of making money.</p>
 
-                        <p><h4>Developers</h4></p>
+                        <h4>Developers</h4>
                         <p>Accepting bitcoin With X is as easy as adding a link. the full code base is opensource, hosted on github and ready for contributions.</p>
 
                         <Button bsStyle="info" 

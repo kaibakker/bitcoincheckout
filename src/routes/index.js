@@ -1,6 +1,7 @@
 // We only need to import the modules necessary for initial render
 import CoreLayout from "../layouts/core-layout/core-layout";
 import Home from "./home";
+import Checkout from "./checkout";
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -10,6 +11,7 @@ export const createRoutes = () => ({
     "component"   : CoreLayout,
     "indexRoute"  : Home,
     "childRoutes" : [
+        Checkout,
     ]
 });
 

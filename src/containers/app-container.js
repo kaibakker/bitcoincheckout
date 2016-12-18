@@ -12,7 +12,6 @@ function fireTracking() {
 class AppContainer extends Component {
   static propTypes = {
     routes : PropTypes.object.isRequired,
-    store  : PropTypes.object.isRequired
   };
 
   shouldComponentUpdate () {
