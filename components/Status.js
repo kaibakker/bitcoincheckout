@@ -21,7 +21,6 @@ var State = React.createClass({
         fetch("https://api.blockcypher.com/v1/btc/" + this.props.request.network + "/addrs/" + this.props.request.address + "/full?limit=50")
     .then(function(response) {
         if (response.status !== 200) {
-            console.log("Looks like there was a problem. Status Code: " + response);
             return;
         }
 
@@ -37,9 +36,6 @@ var State = React.createClass({
     },
 
     updateTransactionStatus(data) {
-        console.log("update transactino status");
-        console.log(this.props.request);
-        console.log(data);
         if(this.state.totalTransactionsReceivedOnAddress < data.n_tx) {
             this.setState({ status: "completed"});
         } else if(this.state.totalTransactionsReceivedOnAddress < data.n_tx + data.unconfirmed_n_tx) {
