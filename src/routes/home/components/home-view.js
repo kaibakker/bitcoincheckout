@@ -26,7 +26,7 @@ export default class HomeView extends Component {
 
                         <Button bsStyle="info" 
                                 componentClass={Link}
-                                href="/checkout?u=testnet:mz5ydTb59nk3AMPrpVtDQi2WGy7F26b8aY?amount=0.03&label=Mastering Bitcoin&redirect_to_cancel=cancel.html&redirect_to_success=success.html">
+                                to="/checkout?u=testnet:mz5ydTb59nk3AMPrpVtDQi2WGy7F26b8aY?amount=0.03&label=Mastering Bitcoin&redirect_to_cancel=cancel.html&redirect_to_success=success.html">
                             Go through testnet checkout
                         </Button>
                     </div>
