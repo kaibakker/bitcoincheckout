@@ -9,7 +9,7 @@ var IdealPanel = React.createClass({
     },
     render(){
         return (
-			<div className="panel panel-checkout">
+			<div className="panel panel-default panel-checkout">
         <CardHeader title='Pay with iDEAL' app={ this.props.app } />
 
         <div className="list-group-item">

@@ -23477,7 +23477,7 @@
 	          { href: this.props.request.bitcoinURI },
 	          React.createElement(
 	            "div",
-	            { className: "m-x-auto qrcode" },
+	            { className: "center-block qrcode" },
 	            React.createElement(QRCode, { value: this.props.request.bitcoinURI })
 	          )
 	        ),
@@ -26915,7 +26915,7 @@
 	        { className: "list-group-item" },
 	        React.createElement(
 	          "div",
-	          { className: "m-x-auto qrcode" },
+	          { className: "center-block qrcode" },
 	          React.createElement("img", { src: "assets/images/circle.png", className: "icon" })
 	        ),
 	        React.createElement(
@@ -26964,7 +26964,7 @@
 	        { className: "list-group-item" },
 	        React.createElement(
 	          "div",
-	          { className: "m-x-auto qrcode" },
+	          { className: "center-block qrcode" },
 	          React.createElement("img", { src: "assets/images/coinbase.png", className: "icon" })
 	        ),
 	        React.createElement(

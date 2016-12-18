@@ -20,7 +20,7 @@ var IndexPanel = React.createClass({
     render() {
         return (
       <div>
-        <div className="panel panel-checkout">
+        <div className="panel panel-default panel-checkout">
           <div className="panel-heading">Choose your payment type</div>
           <ListGroupItem onClick={this.selectPanelHandler(BitcoinPanel)} name='Bitcoin Address' image='assets/images/bitcoin.png' />
           <ListGroupItem onClick={this.selectPanelHandler(CoinbasePanel)} name='Coinbase' image='assets/images/coinbase.png' />

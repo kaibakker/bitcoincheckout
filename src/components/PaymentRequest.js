@@ -72,11 +72,9 @@ var PaymentRequest = React.createClass({
 
     render() {
         return (
-			<div className="panel panel-checkout">
+			<div className="panel panel-default panel-checkout">
 				<div className="panel-heading">
 					Bitcoin Checkout
-
-					<a onClick={this.toggleBuilder}>{ this.state.builder ? "Show" : "Edit" }</a>
 				</div>
 
 				<div className="panel-body">
