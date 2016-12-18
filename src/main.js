@@ -1,14 +1,70 @@
-var React = require("react");
-var ReactDOM = require("react-dom");
-var App = require("./components/App");
-var Builder = require("./components/Builder");
+import React from "react";
+import ReactDOM from "react-dom";
+import AppContainer from "./containers/app-container";
+import ReactGA from "react-ga";
 
-ReactDOM.render(
-  <App />,
-  document.getElementById("main")
-);
 
-// ReactDOM.render(
-//   <Builder />,
-//   document.getElementById('builder')
-// );
+// ========================================================
+// Render Setup
+// ========================================================
+const MOUNT_NODE = document.getElementById("root");
+
+let render = () => {
+    const routes = require("./routes/index").default();
+
+    ReactDOM.render(
+        <AppContainer routes={routes} />,
+        MOUNT_NODE
+    );
+};
+
+// ========================================================
+// Developer Tools Setup
+// ========================================================
+if (__DEV__) {
+    if (window.devToolsExtension) {
+        window.devToolsExtension.open();
+    }
+}
+
+// This code is excluded from production bundle
+if (__DEV__) {
+    if (module.hot) {
+        // Development render functions
+        const renderApp = render;
+        const renderError = (error) => {
+            const RedBox = require("redbox-react").default;
+
+            ReactDOM.render(<RedBox error={error} />, MOUNT_NODE);
+        };
+
+    // Wrap render in try/catch
+        render = () => {
+            try {
+                renderApp();
+            } catch (error) {
+                renderError(error);
+            }
+        };
+
+    // Setup hot module replacement
+        module.hot.accept("./routes/index", () =>
+        setImmediate(() => {
+            ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+            render();
+        })
+    );
+    }
+}
+
+// ========================================================
+// React Google Analytics
+// ========================================================
+if (__PROD__) {
+    ReactGA.initialize("...");
+}
+
+// ========================================================
+// Go!
+// ========================================================
+render();
