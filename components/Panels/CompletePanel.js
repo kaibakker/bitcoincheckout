@@ -1,10 +1,10 @@
-var React = require('react');
+var React = require("react");
 
-var CardHeader = require('.././CardHeader');
+var CardHeader = require(".././CardHeader");
 
 var CompletePanel = React.createClass({
-  render(){
-		return (
+    render(){
+        return (
       <div className="card">
         <CardHeader title='Payment received' app={ this.props.app } />
 
@@ -16,8 +16,8 @@ var CompletePanel = React.createClass({
           </a>
         </div>
 			</div>
-		);
-	}
+        );
+    }
 });
 
 module.exports = CompletePanel;

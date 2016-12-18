@@ -1,14 +1,14 @@
-var React = require('react');
+var React = require("react");
 
 
-var CardHeader = require('.././CardHeader');
+var CardHeader = require(".././CardHeader");
 
 var CoinbasePanel = React.createClass({
-  handlerUrl() {
-    return 'https://www.coinbase.com/handler?u=' + encodeURIComponent(this.props.request.bitcoinURI)
-  },
-  render(){
-		return (
+    handlerUrl() {
+        return "https://www.coinbase.com/handler?u=" + encodeURIComponent(this.props.request.bitcoinURI);
+    },
+    render(){
+        return (
 			<div className="card">
         <CardHeader title='Pay with Coinbase' app={ this.props.app } />
 
@@ -22,8 +22,8 @@ var CoinbasePanel = React.createClass({
           </div>
         </div>
 			</div>
-		);
-	}
+        );
+    }
 });
 
 module.exports = CoinbasePanel;

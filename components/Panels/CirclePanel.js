@@ -1,13 +1,13 @@
-var React = require('react');
+var React = require("react");
 
-var CardHeader = require('.././CardHeader');
+var CardHeader = require(".././CardHeader");
 
 var CirclePanel = React.createClass({
-  handlerUrl() {
-    return 'https://www.circle.com/send?paymentURL=' + encodeURIComponent(this.props.request.bitcoinURI)
-  },
-  render(){
-		return (
+    handlerUrl() {
+        return "https://www.circle.com/send?paymentURL=" + encodeURIComponent(this.props.request.bitcoinURI);
+    },
+    render(){
+        return (
       <div className="card">
         <CardHeader title='Pay with Circle' app={ this.props.app } />
 
@@ -21,8 +21,8 @@ var CirclePanel = React.createClass({
           </div>
         </div>
 			</div>
-		);
-	}
+        );
+    }
 });
 
 module.exports = CirclePanel;

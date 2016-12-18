@@ -1,13 +1,13 @@
-var React = require('react');
+var React = require("react");
 
-var CardHeader = require('.././CardHeader')
+var CardHeader = require(".././CardHeader");
 
 var BitcoinProtocolHandlerPanel = React.createClass({
-  registerProtocolHandler() {
-    navigator.registerProtocolHandler("bitcoin", "index.html?%s", "Bitcoin handler");
-  },
-  render(){
-		return (
+    registerProtocolHandler() {
+        navigator.registerProtocolHandler("bitcoin", "index.html?%s", "Bitcoin handler");
+    },
+    render(){
+        return (
       <div className="card">
         <CardHeader title='Bitcoin payment URLs' app={ this.props.app } />
 
@@ -35,8 +35,8 @@ var BitcoinProtocolHandlerPanel = React.createClass({
           Send us a testnet bitcoin donation
         </a>
       </div>
-		);
-	}
+        );
+    }
 });
 
 module.exports = BitcoinProtocolHandlerPanel;

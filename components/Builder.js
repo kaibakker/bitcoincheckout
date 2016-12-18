@@ -1,12 +1,12 @@
-var React = require('react');
+var React = require("react");
 
 
-var App = require('./App');
+var App = require("./App");
 
 
 var Builder = React.createClass({
-	render() {
-		return (
+    render() {
+        return (
 			<div className='row'>
 				<div className='col-md-12'>
 					<h1>Setup you Bitcoin Checkout</h1>
@@ -47,8 +47,8 @@ var Builder = React.createClass({
 				</div>
 			</div>
 
-		)
-	}
+        );
+    }
 });
 
 module.exports = Builder;

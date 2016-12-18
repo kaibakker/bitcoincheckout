@@ -4,15 +4,15 @@
 
 //1. Send amount request
  
-var React = require('react');
+var React = require("react");
 
-var CardHeader = require('.././CardHeader');
+var CardHeader = require(".././CardHeader");
 
-var ListGroupItem = require('./../ListGroupItem');
+var ListGroupItem = require("./../ListGroupItem");
 
 var ShapeShiftPanel = React.createClass({
-  getInitialState() {
-    return { coins: [
+    getInitialState() {
+        return { coins: [
       {"name": "BitCrystals","symbol": "BCY","image": "https://shapeshift.io/images/coins/bitcrystals.png","status": "available"},
       {"name": "Blackcoin","symbol": "BLK","image": "https://shapeshift.io/images/coins/blackcoin.png","status": "available"},
       {"name": "Bitshares","symbol": "BTS","specialReturn":false,"specialOutgoing":true,"specialIncoming":true,"fieldName": "destTag","fieldKey": "destTag","image": "https://shapeshift.io/images/coins/bitshares.png","status": "available"},
@@ -52,77 +52,77 @@ var ShapeShiftPanel = React.createClass({
       {"name": "Monero","symbol": "XMR","specialReturn":false,"specialOutgoing":true,"specialIncoming":true,"fieldName": "Payment Id","qrName": "tx_payment_id","fieldKey": "paymentId","image": "https://shapeshift.io/images/coins/monero.png","status": "available"},
       {"name": "Ripple","symbol": "XRP","specialReturn":false,"specialOutgoing":true,"specialIncoming":true,"fieldName": "Destination Tag","fieldKey": "destTag","image": "https://shapeshift.io/images/coins/ripple.png","status": "available"},
       {"name": "Zcash","symbol": "ZEC","image": "https://shapeshift.io/images/coins/zcash.png","status": "available"}
-    ]}
-  },
+        ]};
+    },
 
-  componentWillMount() {
+    componentWillMount() {
     // this.getMarkets();
-  },
+    },
 
-  getMarkets() {
-    var self = this;
-		fetch('https://shapeshift.io/getcoins')
+    getMarkets() {
+        var self = this;
+        fetch("https://shapeshift.io/getcoins")
 		.then(function(response) {
-			if (response.status !== 200) {
-				console.log('Looks like there was a problem. Status Code: ' + response.status);
-				console.log(response)
-				return;
-			}
+    if (response.status !== 200) {
+        console.log("Looks like there was a problem. Status Code: " + response.status);
+        console.log(response);
+        return;
+    }
 
 			// Examine the text in the response
-			response.json().then(function(data) {
+    response.json().then(function(data) {
         delete data["BTC"];
 
         self.setState({ coins:
           data.filter(function(coin) {
-            return (self.state.coins[coin].status == "available")
+              return (self.state.coins[coin].status == "available");
           }).values()
-        })
-			});
-		});
-  },
+        });
+    });
+});
+    },
 
-  redirectToShapeShift(currency) {
+    redirectToShapeShift(currency) {
 
-    var myInit = {
-      method: 'POST',
-      body: JSON.stringify({
+        var myInit = {
+            method: "POST",
+            body: JSON.stringify({
     		withdrawalAmount: this.props.request.amount,
     		withdrawal: this.props.request.address,
-        pair: currency.toLowerCase() + '_btc'
+                pair: currency.toLowerCase() + "_btc"
     	}),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      mode: 'cors',
-      cache: 'default'
-    };
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            mode: "cors",
+            cache: "default"
+        };
 
-    console.log(myInit);
+        console.log(myInit);
 
-    fetch('https://cors.shapeshift.io/sendamount', myInit)
+        fetch("https://cors.shapeshift.io/sendamount", myInit)
     .then(function(response) {
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' + response.status);
-        console.log(response)
-        return;
-      }
+        if (response.status !== 200) {
+            console.log("Looks like there was a problem. Status Code: " + response.status);
+            console.log(response);
+            return;
+        }
 
       // Examine the text in the response
-      response.json().then(function(data) {
-        console.log("Response shapeshift")
-        console.log(data);
+        response.json().then(function(data) {
+            console.log("Response shapeshift");
+            console.log(data);
 
-        var url = 'https://shapeshift.io/#/status/' + data.success.orderId;
+            var url = "https://shapeshift.io/#/status/" + data.success.orderId;
 
-        window.location.href = url;
-      });
-    })
-  },
+            window.location.href = url;
+        });
+    });
+    },
 
-  render(){
-		return (
+    render(){
+        return (
       <div className="card">
         <CardHeader title='Pay with ShapeShift' app={ this.props.app } />
 
@@ -130,11 +130,11 @@ var ShapeShiftPanel = React.createClass({
           Select the cryptocurrency you would like to pay with and you will be send to shapeshift.
         </div>
         { this.state.coins.map(function (coin, index) {
-          return <ListGroupItem onClick={() => this.redirectToShapeShift(coin.symbol)} name={coin.name} redirect={coin.symbol} image={coin.image} />
+            return <ListGroupItem onClick={() => this.redirectToShapeShift(coin.symbol)} name={coin.name} redirect={coin.symbol} image={coin.image} />;
         }, this) }
       </div>
-		);
-	}
+        );
+    }
 });
 
 module.exports = ShapeShiftPanel;

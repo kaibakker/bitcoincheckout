@@ -1,24 +1,24 @@
-var React = require('react');
+var React = require("react");
 
 
-var BitcoinPanel = require('./Panels/BitcoinPanel');
-var ShapeShiftPanel = require('./Panels/ShapeShiftPanel');
-var CirclePanel = require('./Panels/CirclePanel');
-var CoinbasePanel = require('./Panels/CoinbasePanel');
+var BitcoinPanel = require("./Panels/BitcoinPanel");
+var ShapeShiftPanel = require("./Panels/ShapeShiftPanel");
+var CirclePanel = require("./Panels/CirclePanel");
+var CoinbasePanel = require("./Panels/CoinbasePanel");
 
-var DevelopmentPanel = require('./Panels/DevelopmentPanel');
-
-
+var DevelopmentPanel = require("./Panels/DevelopmentPanel");
 
 
-var ListGroupItem = require('./ListGroupItem')
+
+
+var ListGroupItem = require("./ListGroupItem");
 
 var IndexPanel = React.createClass({
-  selectPanelHandler(panel) {
-    return () => this.props.app.setPanel(panel)
-  },
-  render() {
-    return (
+    selectPanelHandler(panel) {
+        return () => this.props.app.setPanel(panel);
+    },
+    render() {
+        return (
       <div>
         <div className="card">
           <div className="card-header">Choose your payment type</div>
@@ -28,12 +28,12 @@ var IndexPanel = React.createClass({
           <ListGroupItem onClick={this.selectPanelHandler(ShapeShiftPanel)} name='ShapeShift' image='assets/images/shapeshift.png' />
         </div>
 
-        { this.props.request.network == 'testnet' &&
+        { this.props.request.network == "testnet" &&
           <DevelopmentPanel request={this.props.request} app={this.props.app}/>
         }
       </div>
-    )
-	}
+        );
+    }
 });
 
 module.exports = IndexPanel;

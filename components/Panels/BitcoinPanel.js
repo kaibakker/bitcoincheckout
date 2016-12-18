@@ -1,11 +1,11 @@
-var React = require('react');
+var React = require("react");
 
-var QRCode = require('qrcode.react');
-var CardHeader = require('.././CardHeader');
+var QRCode = require("qrcode.react");
+var CardHeader = require(".././CardHeader");
 
 var BitcoinPanel = React.createClass({
-  render() {
-		return (
+    render() {
+        return (
       <div className="card">
         <CardHeader title='Pay to Bitcoin Address' app={ this.props.app } />
 
@@ -21,8 +21,8 @@ var BitcoinPanel = React.createClass({
           </div>
         </div>
       </div>
-    )
-	}
+        );
+    }
 });
 
 

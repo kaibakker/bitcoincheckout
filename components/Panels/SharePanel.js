@@ -1,14 +1,14 @@
-var React = require('react');
+var React = require("react");
 
-var CardHeader = require('.././CardHeader');
+var CardHeader = require(".././CardHeader");
 
 
 var SharePanel = React.createClass({
-  handlerURL() {
-    return 'https://kaibakker.github.io/bitcoincheckout/?u=' + encodeURIComponent(this.props.app.request.bitcoinURI)
-  },
-  render(){
-		return (
+    handlerURL() {
+        return "https://kaibakker.github.io/bitcoincheckout/?u=" + encodeURIComponent(this.props.app.request.bitcoinURI);
+    },
+    render(){
+        return (
 			<div className="card">
         <CardHeader title='Let someonelse pay' app={ this.props.app } />
 
@@ -21,8 +21,8 @@ var SharePanel = React.createClass({
 
         </div>
 			</div>
-		);
-	}
+        );
+    }
 });
 
 module.exports = SharePanel;

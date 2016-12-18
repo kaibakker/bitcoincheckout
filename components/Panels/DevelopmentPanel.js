@@ -1,21 +1,21 @@
-var React = require('react');
+var React = require("react");
 
 
-var BitcoinProtocolHandlerPanel = require('./BitcoinProtocolHandlerPanel');
-var SharePanel = require('./SharePanel');
-var CompletePanel = require('./CompletePanel');
-var IdealPanel = require('./IdealPanel');
+var BitcoinProtocolHandlerPanel = require("./BitcoinProtocolHandlerPanel");
+var SharePanel = require("./SharePanel");
+var CompletePanel = require("./CompletePanel");
+var IdealPanel = require("./IdealPanel");
 
 
-var ListGroupItem = require('.././ListGroupItem')
+var ListGroupItem = require(".././ListGroupItem");
 
 var DevelopmentPanel = React.createClass({
-  selectPanelHandler(panel) {
-    return () => this.props.app.setPanel(panel)
-  },
-  render() {
-    if(this.props.request.network == 'testnet') {
-      return (
+    selectPanelHandler(panel) {
+        return () => this.props.app.setPanel(panel);
+    },
+    render() {
+        if(this.props.request.network == "testnet") {
+            return (
         <div className="card">
           <div className="card-header">Under development</div>
           <ListGroupItem onClick={this.selectPanelHandler(CompletePanel)} name='Test completion' />
@@ -24,11 +24,11 @@ var DevelopmentPanel = React.createClass({
 
           <ListGroupItem onClick={this.selectPanelHandler(IdealPanel)} name='iDEAL' image='assets/images/ideal.gif' />
         </div>
-      )
-    } else {
-      return (<div />)
+            );
+        } else {
+            return (<div />);
+        }
     }
-	}
 });
 
 module.exports = DevelopmentPanel;
