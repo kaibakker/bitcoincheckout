@@ -9,12 +9,12 @@ export default class HomeView extends Component {
             <Row>
                 <Col md={12}>
                     <div className="info">
-                        <h1>Easy bitcoin integration</h1>
+                        <h1>Bitcheckout.io</h1>
                         <h2>We provide a great bitcoin checkout service, fully opensource</h2>
                         <h4>Customers</h4>
                         <p>We provide easy payments on the web, we accept different methods through different providers. With an beautiful and customer friendly interfase.</p>
 
-                        <Button bsStyle="info" 
+                        <Button bsStyle="info"
                                 componentClass={Link}
                                 to="/checkout?u=bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&label=Mastering Bitcoin&redirect_to_cancel=cancel.html&redirect_to_success=success.html">Go to Bitcoin Checkout</Button>
 
@@ -29,9 +29,9 @@ export default class HomeView extends Component {
                         <h4>Developers</h4>
                         <p>Accepting bitcoin With X is as easy as adding a link. the full code base is opensource, hosted on github and ready for contributions.</p>
 
-                        <Button bsStyle="info" 
+                        <Button bsStyle="info"
                                 componentClass={Link}
-                                to="/checkout?u=testnet:mz5ydTb59nk3AMPrpVtDQi2WGy7F26b8aY?amount=0.03&label=Mastering Bitcoin&redirect_to_cancel=cancel.html&redirect_to_success=success.html">
+                                to="/checkout/index?u=testnet:mz5ydTb59nk3AMPrpVtDQi2WGy7F26b8aY?amount=0.03&label=Mastering Bitcoin&redirect_to_cancel=cancel.html&redirect_to_success=success.html">
                             Go through testnet checkout
                         </Button>
                     </div>
