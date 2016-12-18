@@ -1,13 +1,13 @@
-var React = require("react");
+import React from "react";
 
-var PaymentRequest = require("./PaymentRequest");
+import PaymentRequest from "./PaymentRequest";
 
-var PanelController = require("./PanelController");
+import PanelController from "./PanelController";
 
-var IndexPanel = require("./IndexPanel");
-var DevelopmentPanel = require("./Panels/DevelopmentPanel");
+import IndexPanel from "./IndexPanel";
+import DevelopmentPanel from "./Panels/DevelopmentPanel";
 
-var makeRequestFromProtocolURI = require("helpers/get-request-object");
+import makeRequestFromProtocolURI from "utils/get-request-object";
 
 var App = React.createClass({
     getInitialState(){

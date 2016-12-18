@@ -1,10 +1,8 @@
-var React = require("react");
+import React, { Component } from "react";
 
+import App from "./App";
 
-var App = require("./App");
-
-
-var Builder = React.createClass({
+export default class Builder extends Component {
     render() {
         return (
 			<div className='row'>
@@ -16,26 +14,26 @@ var Builder = React.createClass({
 
 					<form>
                         <div className="form-group">
-                            <label for="exampleInputEmail1">Bitcoin address</label>
+                            <label htmlFor="exampleInputEmail1">Bitcoin address</label>
                             <input type="text" className="form-control" id="exampleInputBitcoin1" aria-describedby="emailHelp" placeholder="Enter email" />
                         </div>
                         <div className="form-group">
-                            <label for="exampleInputPassword1">Amount in bitcoin</label>
+                            <label htmlFor="exampleInputPassword1">Amount in bitcoin</label>
                             <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                         </div>
 
                         <div className="form-group">
-                            <label for="exampleInputPassword1">Label</label>
+                            <label htmlFor="exampleInputPassword1">Label</label>
                             <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                         </div>
 
                         <div className="form-group">
-                            <label for="exampleInputPassword1">Succes redirect url</label>
+                            <label htmlFor="exampleInputPassword1">Succes redirect url</label>
                             <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                         </div>
 
                         <div className="form-group">
-                            <label for="exampleInputPassword1">Cancel redirect url</label>
+                            <label htmlFor="exampleInputPassword1">Cancel redirect url</label>
                             <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                         </div>
 
@@ -49,6 +47,4 @@ var Builder = React.createClass({
 
         );
     }
-});
-
-module.exports = Builder;
+}

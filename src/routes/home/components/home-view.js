@@ -21,6 +21,11 @@ export default class HomeView extends Component {
                         <h4>Merchants</h4>
                         <p>We provide an easy way of accepting bitcoin, just a link from your wallet is enough. While you allow customers to pay With a wide foraity of payments. And thus an extra way of making money.</p>
 
+                        <Button bsStyle="info"
+                                componentClass={Link}
+                                to="/create"
+                            >Create Link</Button>
+
                         <h4>Developers</h4>
                         <p>Accepting bitcoin With X is as easy as adding a link. the full code base is opensource, hosted on github and ready for contributions.</p>
 
