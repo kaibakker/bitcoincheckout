@@ -9,7 +9,6 @@ const __DEV__ = config.globals.__DEV__;
 const __PROD__ = config.globals.__PROD__;
 const __TEST__ = config.globals.__TEST__;
 
-
 let webpackConfig = {
     name: "client",
     target: "web",

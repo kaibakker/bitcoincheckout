@@ -101,6 +101,20 @@ config.compiler_vendors = config.compiler_vendors
     );
   });
 
+// ========================================================
+// Environment Configuration
+// ========================================================
+debug(`Looking for environment overrides for NODE_ENV "${config.env}".`);
+const environments = require("./environments");
+const overrides = environments[config.env];
+
+if (overrides) {
+    debug("Found overrides, applying to default configuration.");
+    Object.assign(config, overrides(config));
+} else {
+    debug("No environment overrides found, defaults will be used.");
+}
+
 // ------------------------------------
 // Utilities
 // ------------------------------------
@@ -115,19 +129,5 @@ config.utils_paths = {
     dist      : base.bind(null, config.dir_dist),
     public    : base.bind(null, config.dir_public),
 };
-
-// ========================================================
-// Environment Configuration
-// ========================================================
-debug(`Looking for environment overrides for NODE_ENV "${config.env}".`);
-const environments = require("./environments");
-const overrides = environments[config.env];
-
-if (overrides) {
-    debug("Found overrides, applying to default configuration.");
-    Object.assign(config, overrides(config));
-} else {
-    debug("No environment overrides found, defaults will be used.");
-}
 
 module.exports = config;
