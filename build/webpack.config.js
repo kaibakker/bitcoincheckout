@@ -76,6 +76,9 @@ if (__DEV__) {
     webpackConfig.devServer.contentBase = [paths.public(), paths.dist()];
     webpackConfig.devServer.compress = false;
     webpackConfig.devServer.port = 9000;
+    webpackConfig.devServer.historyApiFallback = {
+        index: "index.html",
+    };
 }
 
 // ------------------------------------
