@@ -72,14 +72,12 @@ var PaymentRequest = React.createClass({
 
     render() {
         return (
-			<div className="card">
-				<div className="card-header">
+			<div className="panel panel-default panel-checkout">
+				<div className="panel-heading">
 					Bitcoin Checkout
-
-					<a onClick={this.toggleBuilder}>{ this.state.builder ? "Show" : "Edit" }</a>
 				</div>
 
-				<div className="card-block">
+				<div className="panel-body">
 					<div className="row">
 						<div className='col-xs-8'>{ this.props.request.label }</div>
 
@@ -93,7 +91,7 @@ var PaymentRequest = React.createClass({
 						}
 
 
-						<div className='col-xs-4 text-xs-right'>
+						<div className='col-xs-4 text-right'>
 							<Rate request={ this.props.request } />
 						</div>
 					</div>

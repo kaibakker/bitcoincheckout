@@ -23220,7 +23220,7 @@
 	            { className: "card" },
 	            React.createElement(
 	                "div",
-	                { className: "card-header" },
+	                { className: "panel-heading" },
 	                "Bitcoin Checkout",
 	                React.createElement(
 	                    "a",
@@ -23230,7 +23230,7 @@
 	            ),
 	            React.createElement(
 	                "div",
-	                { className: "card-block" },
+	                { className: "panel-body" },
 	                React.createElement(
 	                    "div",
 	                    { className: "row" },
@@ -23255,7 +23255,7 @@
 	                    ),
 	                    React.createElement(
 	                        "div",
-	                        { className: "col-xs-4 text-xs-right" },
+	                        { className: "col-xs-4 text-right" },
 	                        React.createElement(Rate, { request: this.props.request })
 	                    )
 	                ),
@@ -23436,7 +23436,7 @@
 	        { className: "card" },
 	        React.createElement(
 	          "div",
-	          { className: "card-header" },
+	          { className: "panel-heading" },
 	          "Choose your payment type"
 	        ),
 	        React.createElement(ListGroupItem, { onClick: this.selectPanelHandler(BitcoinPanel), name: "Bitcoin Address", image: "assets/images/bitcoin.png" }),
@@ -23477,13 +23477,13 @@
 	          { href: this.props.request.bitcoinURI },
 	          React.createElement(
 	            "div",
-	            { className: "m-x-auto qrcode" },
+	            { className: "center-block qrcode" },
 	            React.createElement(QRCode, { value: this.props.request.bitcoinURI })
 	          )
 	        ),
 	        React.createElement(
 	          "div",
-	          { className: "text-xs-center" },
+	          { className: "text-center" },
 	          "Send exactly ",
 	          React.createElement(
 	            "code",
@@ -24887,7 +24887,7 @@
 	
 	    return React.createElement(
 	      "div",
-	      { className: "card-header" },
+	      { className: "panel-heading" },
 	      React.createElement(
 	        "span",
 	        { className: "backbutton", onClick: function onClick() {
@@ -24898,7 +24898,7 @@
 	      ),
 	      React.createElement(
 	        "div",
-	        { className: "text-xs-center" },
+	        { className: "text-center" },
 	        this.props.title
 	      )
 	    );
@@ -26783,7 +26783,7 @@
 	            React.createElement(CardHeader, { title: "Pay with ShapeShift", app: this.props.app }),
 	            React.createElement(
 	                "div",
-	                { className: "card-block" },
+	                { className: "panel-body" },
 	                "Select the cryptocurrency you would like to pay with and you will be send to shapeshift."
 	            ),
 	            this.state.coins.map(function (coin, index) {
@@ -26915,7 +26915,7 @@
 	        { className: "list-group-item" },
 	        React.createElement(
 	          "div",
-	          { className: "m-x-auto qrcode" },
+	          { className: "center-block qrcode" },
 	          React.createElement("img", { src: "assets/images/circle.png", className: "icon" })
 	        ),
 	        React.createElement(
@@ -26925,7 +26925,7 @@
 	        ),
 	        React.createElement(
 	          "div",
-	          { className: "text-xs-right" },
+	          { className: "text-right" },
 	          React.createElement(
 	            "a",
 	            { href: this.handlerUrl(), className: "btn btn-primary" },
@@ -26964,7 +26964,7 @@
 	        { className: "list-group-item" },
 	        React.createElement(
 	          "div",
-	          { className: "m-x-auto qrcode" },
+	          { className: "center-block qrcode" },
 	          React.createElement("img", { src: "assets/images/coinbase.png", className: "icon" })
 	        ),
 	        React.createElement(
@@ -26974,7 +26974,7 @@
 	        ),
 	        React.createElement(
 	          "div",
-	          { className: "text-xs-right" },
+	          { className: "text-right" },
 	          React.createElement(
 	            "a",
 	            { href: this.handlerUrl(), className: "btn btn-primary" },
@@ -27019,7 +27019,7 @@
 	                { className: "card" },
 	                React.createElement(
 	                    "div",
-	                    { className: "card-header" },
+	                    { className: "panel-heading" },
 	                    "Under development"
 	                ),
 	                React.createElement(ListGroupItem, { onClick: this.selectPanelHandler(CompletePanel), name: "Test completion" }),

@@ -8,17 +8,17 @@ var { bitcoinURI } = require("../../../utils/request_helpers");
 var BitcoinPanel = React.createClass({
     render() {
         return (
-      <div className="card">
+      <div className="panel panel-default panel-checkout">
         <CardHeader title='Pay to Bitcoin Address' app={ this.props.app } />
 
         <div className="list-group-item">
           <a href={bitcoinURI(this.props.request)}>
-            <div className="m-x-auto qrcode">
+            <div className="center-block qrcode">
               <QRCode value={bitcoinURI(this.props.request)} />
             </div>
           </a>
 
-          <div className="text-xs-center">
+          <div className="text-center">
             Send exactly <code>{ this.props.request.amount }</code> to this address <code>{ this.props.request.address }</code>
           </div>
         </div>

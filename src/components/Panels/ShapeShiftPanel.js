@@ -114,10 +114,10 @@ var ShapeShiftPanel = React.createClass({
 
     render(){
         return (
-            <div className="card">
+            <div className="panel panel-default panel-checkout">
                 <CardHeader title='Pay with ShapeShift' app={ this.props.app } />
 
-                <div className="card-block">
+                <div className="panel-body">
                     Select the cryptocurrency you would like to pay with and you will be send to shapeshift.
                 </div>
                 { this.state.coins.map(function (coin, index) {
