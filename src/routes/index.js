@@ -4,7 +4,7 @@ import Home from "./home";
 import Checkout from "./checkout";
 import Create from "./create";
 import Development from "./development"
-import Handler from "./handler"
+import Handler from "./settings"
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
