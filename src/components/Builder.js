@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import App from "./App";
+
 
 export default class Builder extends Component {
     render() {
@@ -11,7 +11,6 @@ export default class Builder extends Component {
 					<p>Setting up your bitcoin checkout is a simple as filling the form below and putting the link into your webpage</p>
 				</div>
 				<div className='col-md-6'>
-
 					<form>
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">Bitcoin address</label>
@@ -40,11 +39,7 @@ export default class Builder extends Component {
                         <button type="submit" className="btn btn-primary">Submit</button>
 					</form>
 				</div>
-				<div className='col-md-6'>
-					<App />
-				</div>
 			</div>
-
         );
     }
 }
