@@ -1,10 +1,10 @@
 var React = require("react");
 
-var CardHeader = require(".././CardHeader");
+var CardHeader = require("./CardHeader");
 
 var { bitcoinURI } = require("utils/request_helpers");
 
-var BitcoinProtocolHandlerPanel = React.createClass({
+var HandlerPanel = React.createClass({
     registerProtocolHandler() {
         navigator.registerProtocolHandler("bitcoin", "index.html?%s", "Bitcoin handler");
     },
@@ -35,13 +35,9 @@ var BitcoinProtocolHandlerPanel = React.createClass({
                 <a href="bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit" className="list-group-item">
                     Send us a bitcoin donation
                 </a>
-
-                <a href="file:///Users/kaibakker/code/viabitcoin/index.html?u=bitcoin%3A124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB%3Famount%3D0.01%26label%3DDonate%20to%20Bitcoin%20Checkout" className="list-group-item">
-                    Send us a testnet bitcoin donation
-                </a>
             </div>
         );
     }
 });
 
-module.exports = BitcoinProtocolHandlerPanel;
+module.exports = HandlerPanel;
