@@ -13,19 +13,13 @@ var Rate = React.createClass({
 
     updateRates() {
         var self = this;
+
         fetch("https://bitpay.com/rates")
         .then(function(response) {
-            if (response.status !== 200) {
-                return;
-            }
-
-            response.json().then(function(data) {
-                if (data.data) {
-                    self.setRates(data.data);
-                } else {
-                }
-            });
-        });
+            return response.json()
+        }).then(function(json) {
+            self.setRates(json.data);
+        })
     },
 
     setRates(rates) {
@@ -46,7 +40,7 @@ var Rate = React.createClass({
 
     render() {
         return (
-			<div>{this.state.selectedRate && this.state.selectedRate.toFixed(2) + " " + this.state.selectedSymbol}</div>
+			<div>{ this.state.selectedRate && this.state.selectedRate.toFixed(2) + " " + this.state.selectedSymbol }</div>
         );
     }
 });

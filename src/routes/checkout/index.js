@@ -1,9 +1,9 @@
 import CheckoutView from "./components/checkout-view";
 
-import IndexPanel from "components/IndexPanel";
-import BitcoinPanel from "components/Panels/BitcoinPanel"
-import ShapeShiftPanel from "components/Panels/ShapeShiftPanel"
-import CoinbasePanel from "components/Panels/CoinbasePanel"
+import IndexPanel from "components/checkout/IndexPanel";
+import BitcoinPanel from "components/checkout/BitcoinPanel"
+import ShapeShiftPanel from "components/checkout/ShapeShiftPanel"
+import CoinbasePanel from "components/checkout/CoinbasePanel"
 
 
 // Sync route definition

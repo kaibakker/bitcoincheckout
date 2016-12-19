@@ -48,9 +48,10 @@ var State = React.createClass({
             this.setState({ status: "unpaid"});
         }
     },
+
     render() {
         return (
-      <a onClick={this.reloadStatus} href="#" >{ this.state.status }</a>
+            <a onClick={this.reloadStatus} href="#" >{ this.state.status }</a>
         );
     }
 });

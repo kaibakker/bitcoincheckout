@@ -1,11 +1,11 @@
 import CheckoutView from "./../checkout/components/checkout-view";
 
-import DevelopmentPanel from "components/Panels/DevelopmentPanel";
-import IdealPanel from "components/Panels/IdealPanel"
-import CompletePanel from "components/Panels/CompletePanel"
-import BitcoinProtocolHandlerPanel from "components/Panels/BitcoinProtocolHandlerPanel"
+import DevelopmentPanel from "components/development/DevelopmentPanel";
+import IdealPanel from "components/development/IdealPanel"
+import CompletePanel from "components/development/CompletePanel"
+import BitcoinProtocolHandlerPanel from "components/development/BitcoinProtocolHandlerPanel"
 
-import SharePanel from "components/Panels/SharePanel"
+import SharePanel from "components/development/SharePanel"
 
 
 // Sync route definition

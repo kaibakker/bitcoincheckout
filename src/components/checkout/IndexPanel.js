@@ -4,7 +4,7 @@ var React = require("react");
 import makeRequestFromProtocolURI from "utils/get-request-object";
 
 
-var ListGroupItem = require("./ListGroupItem");
+var ListGroupItem = require("./../ListGroupItem");
 
 var IndexPanel = React.createClass({
     selectPanelHandler(panel) {

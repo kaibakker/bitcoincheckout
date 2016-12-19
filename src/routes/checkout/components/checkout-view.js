@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import PaymentRequest from "../../../components/PaymentRequest"
+import PaymentRequest from "components/checkout/PaymentRequest"
 
 export default ({ children }) => {
     return (
