@@ -14,7 +14,7 @@ var CoinbasePanel = React.createClass({
     render(){
         return (
 			<div className="panel panel-default panel-checkout">
-                <CardHeader title='Pay with Coinbase' app={ this.props.app } />
+                <CardHeader title='Pay with Coinbase' />
 
                 <div className="list-group-item">
                     <div className="center-block qrcode">

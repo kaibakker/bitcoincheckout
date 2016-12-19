@@ -14,7 +14,7 @@ var BitcoinPanel = React.createClass({
 
         return (
             <div className="panel panel-default panel-checkout">
-                <CardHeader title='Pay to Bitcoin Address' app={ this.props.app } />
+                <CardHeader title='Pay to Bitcoin Address' />
 
                 <div className="list-group-item">
                     <a href={bitcoinURI(request)}>

@@ -6,7 +6,7 @@ var CompletePanel = React.createClass({
     render(){
         return (
             <div className="panel panel-default panel-checkout">
-                <CardHeader title='Payment received' app={ this.props.app } />
+                <CardHeader title='Payment received' />
 
                 <div className="list-group-item">
                     <p>Thanks for shoping with us</p>

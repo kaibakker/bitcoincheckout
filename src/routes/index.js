@@ -3,6 +3,7 @@ import CoreLayout from "../layouts/core-layout/core-layout";
 import Home from "./home";
 import Checkout from "./checkout";
 import Create from "./create";
+import Development from "./development"
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -14,6 +15,7 @@ export const createRoutes = () => ({
     "childRoutes" : [
         Checkout,
         Create,
+        Development,
     ]
 });
 

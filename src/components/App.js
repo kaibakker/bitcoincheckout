@@ -2,8 +2,6 @@ import React from "react";
 
 import PaymentRequest from "./PaymentRequest";
 
-import PanelController from "./PanelController";
-
 import IndexPanel from "./IndexPanel";
 import DevelopmentPanel from "./Panels/DevelopmentPanel";
 
@@ -83,7 +81,6 @@ var App = React.createClass({
 				<div>
 					<PaymentRequest request={this.state.request} app={this} />
 
-					<PanelController request={this.state.request} app={this}/>
 
 
 

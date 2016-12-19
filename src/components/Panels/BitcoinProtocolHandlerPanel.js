@@ -11,7 +11,7 @@ var BitcoinProtocolHandlerPanel = React.createClass({
     render(){
         return (
             <div className="panel panel-default panel-checkout">
-                <CardHeader title='Bitcoin payment URLs' app={ this.props.app } />
+                <CardHeader title='Bitcoin payment URLs' />
 
                 <div className="list-group-item">
                     <p>
