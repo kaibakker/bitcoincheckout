@@ -22,7 +22,7 @@ var IndexPanel = React.createClass({
             <div>
                 Hallo ik ben cool!
             </div>
-        )
+        );
         // return (
         //     <div>
         //         <div className="panel panel-default panel-checkout">

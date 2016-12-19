@@ -2,7 +2,7 @@ var React = require("react");
 
 var CardHeader = require(".././CardHeader");
 
-var { bitcoinURI } = require("../../../utils/request_helpers");
+var { bitcoinURI } = require("../../utils/request_helpers");
 
 var SharePanel = React.createClass({
     handlerURL() {
@@ -11,16 +11,17 @@ var SharePanel = React.createClass({
     render(){
         return (
 			<div className="panel panel-default panel-checkout">
-        <CardHeader title='Let someonelse pay' app={ this.props.app } />
+                <CardHeader title='Let someonelse pay' app={ this.props.app } />
 
-        <div className="list-group-item">
-          <p>Copy a permanent payment URL, the requested value will fluctutate over time as the amount of bitcoin requested is fixed</p>
+                <div className="list-group-item">
+                    <p>
+                        Copy a permanent payment URL, the requested value will fluctutate over time as the amount of bitcoin requested is fixed
+                    </p>
 
-          <a href={ this.handlerURL() }>
-            send permanent request link
-          </a>
-
-        </div>
+                    <a href={ this.handlerURL() }>
+                        send permanent request link
+                    </a>
+                </div>
 			</div>
         );
     }

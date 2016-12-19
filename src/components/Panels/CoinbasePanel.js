@@ -2,7 +2,7 @@ var React = require("react");
 
 
 var CardHeader = require(".././CardHeader");
-var { bitcoinURI } = require("../../../utils/request_helpers");
+var { bitcoinURI } = require("../../utils/request_helpers");
 
 var CoinbasePanel = React.createClass({
     handlerUrl() {
@@ -11,17 +11,19 @@ var CoinbasePanel = React.createClass({
     render(){
         return (
 			<div className="panel panel-default panel-checkout">
-        <CardHeader title='Pay with Coinbase' app={ this.props.app } />
+                <CardHeader title='Pay with Coinbase' app={ this.props.app } />
 
-        <div className="list-group-item">
-          <div className="center-block qrcode">
-            <img src='assets/images/coinbase.png' className="icon" />
-          </div>
-          <p className="">Coinbase provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
-          <div className="text-right">
-            <a href={this.handlerUrl()} className="btn btn-primary">send to Coinbase</a>
-          </div>
-        </div>
+                <div className="list-group-item">
+                    <div className="center-block qrcode">
+                        <img src='assets/images/coinbase.png' className="icon" />
+                    </div>
+
+                    <p className="">Coinbase provides an easy way to connect your bankaccount or creditcard to bitcoin</p>
+
+                    <div className="text-right">
+                        <a href={this.handlerUrl()} className="btn btn-primary">send to Coinbase</a>
+                    </div>
+                </div>
 			</div>
         );
     }

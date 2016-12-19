@@ -63,21 +63,21 @@ var ShapeShiftPanel = React.createClass({
         var self = this;
         fetch("https://shapeshift.io/getcoins")
 		.then(function(response) {
-    if (response.status !== 200) {
-        return;
-    }
+            if (response.status !== 200) {
+                return;
+            }
 
-			// Examine the text in the response
-    response.json().then(function(data) {
-        delete data["BTC"];
+        	// Examine the text in the response
+            response.json().then(function(data) {
+                delete data["BTC"];
 
-        self.setState({ coins:
-                  data.filter(function(coin) {
-                      return (self.state.coins[coin].status == "available");
-                  }).values()
+                self.setState({ coins:
+                    data.filter(function(coin) {
+                        return (self.state.coins[coin].status == "available");
+                    }).values()
+                });
+            });
         });
-    });
-});
     },
 
     redirectToShapeShift(currency) {

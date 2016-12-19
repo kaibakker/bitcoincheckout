@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 
 import App from "components/App";
-import PaymentRequest from "../../../components/PaymentRequest"
+import PaymentRequest from "../../../components/PaymentRequest";
+
+import getRequestObject from "utils/get-request-object"
 
 export default class CheckoutView extends Component {
     render() {
         return (
             <div>
-                <PaymentRequest request={ {amount: '0.03', address: 'xyz', label: 'test', network: 'bitcoin'} }/>
+                <PaymentRequest request={ getRequestObject() }/>
 
                 { this.props.childeren }
 
