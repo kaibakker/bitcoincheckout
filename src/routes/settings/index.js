@@ -1,4 +1,4 @@
-import HandlerPanel from "components/HandlerPanel";
+import HandlerPanel from "components/settings/HandlerPanel";
 
 // Sync route definition
 export default {

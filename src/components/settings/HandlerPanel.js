@@ -1,6 +1,6 @@
 var React = require("react");
 
-var CardHeader = require("./CardHeader");
+var CardHeader = require("components/CardHeader");
 
 var { bitcoinURI } = require("utils/request_helpers");
 
