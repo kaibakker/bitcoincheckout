@@ -3,9 +3,11 @@ var React = require("react");
 var Rate = require("./Rate");
 var Status = require("./Status");
 
+import makeRequestFromProtocolURI from "utils/get-request-object";
+
 var PaymentRequest = React.createClass({
     getInitialState() {
-        return {};
+        return { request: makeRequestFromProtocolURI() };
     },
     componentWillMount() {
         this.checkBitcoinAddress(this.updateTransactionStatus);
@@ -19,50 +21,39 @@ var PaymentRequest = React.createClass({
   // api services
 
     checkBitcoinAddress(callback) {
-        fetch("https://api.blockcypher.com/v1/btc/" + this.props.request.network + "/addrs/" + this.props.request.address + "/full?limit=50")
+        fetch("https://api.blockcypher.com/v1/btc/" + this.state.request.network + "/addrs/" + this.state.request.address + "/full?limit=50")
 		.then(function(response) {
-    if (response.status == 400) {
-        return;
-    }
+            if (response.status !== 200) {
+                return;
+            }
 
-    if (response.status !== 200) {
-        return;
-    }
+        	// Examine the text in the response
+            response.json().then(function(data) {
+                if (data.error == "Not found") {
 
-			// Examine the text in the response
-    response.json().then(function(data) {
-        if (data.error == "Not found") {
-
-        } else {
-
-            callback(data);
-        }
-    });
-});
+                } else {
+                    callback(data);
+                }
+            });
+        });
     },
 
 
     checkToshi(callback) {
-        fetch("https://testnet3.toshi.io/api/v0/addresses/" + this.props.request.address + "/transactions")
-    .then(function(response) {
-        if (response.status == 400) {
-            return;
-        }
-
-        if (response.status !== 200) {
-            return;
-        }
-
-      // Examine the text in the response
-        response.json().then(function(data) {
-            if (data.error == "Not found") {
-
-            } else {
-
-                callback(data);
+        fetch("https://testnet3.toshi.io/api/v0/addresses/" + this.state.request.address + "/transactions")
+        .then(function(response) {
+            if (response.status !== 200) {
+                return;
             }
+
+            response.json().then(function(data) {
+                if (data.error == "Not found") {
+
+                } else {
+                    callback(data);
+                }
+            });
         });
-    });
     },
 
     toggleBuilder(event) {
@@ -79,7 +70,7 @@ var PaymentRequest = React.createClass({
 
 				<div className="panel-body">
 					<div className="row">
-						<div className='col-xs-8'>{ this.props.request.label }</div>
+						<div className='col-xs-8'>{ this.state.request.label }</div>
 
 						{ this.state.builder &&
 							<div className="form-group row">
@@ -92,19 +83,19 @@ var PaymentRequest = React.createClass({
 
 
 						<div className='col-xs-4 text-right'>
-							<Rate request={ this.props.request } />
+							<Rate />
 						</div>
 					</div>
 
-					{ this.props.request.network == "testnet" &&
+					{ this.state.request.network == "testnet" &&
 						<div className="row">
 							<div className='col-xs-8'>
-								Status: <Status request={ this.props.request } />
+								Status: <Status />
 							</div>
 
 
 							<div className='col-xs-12'>
-								network: { this.props.request.network }
+								network: { this.state.request.network }
 							</div>
 						</div>
 					}

@@ -2,6 +2,8 @@ var React = require("react");
 
 var IndexPanel = require("./IndexPanel");
 
+import makeRequestFromProtocolURI from "utils/get-request-object";
+
 
 var State = React.createClass({
     getInitialState() {
@@ -18,17 +20,19 @@ var State = React.createClass({
 
 
     checkBitcoinAddress(callback) {
-        fetch("https://api.blockcypher.com/v1/btc/" + this.props.request.network + "/addrs/" + this.props.request.address + "/full?limit=50")
-    .then(function(response) {
-        if (response.status !== 200) {
-            return;
-        }
+        var request = makeRequestFromProtocolURI();
 
-      // Examine the text in the response
-        response.json().then(function(data) {
-            callback(data);
+        fetch("https://api.blockcypher.com/v1/btc/" + request.network + "/addrs/" + request.address + "/full?limit=50")
+        .then(function(response) {
+            if (response.status !== 200) {
+                return;
+            }
+
+            // Examine the text in the response
+            response.json().then(function(data) {
+                callback(data);
+            });
         });
-    });
     },
 
     reloadStatus() {

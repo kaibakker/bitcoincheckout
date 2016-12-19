@@ -1,16 +1,18 @@
 var React = require("react");
+import { Link } from 'react-router'
+
 var octicons = require("octicons");
 
 var CardHeader = React.createClass({
     render () {
         return (
-      <div className="panel-heading">
-        <span className='backbutton' onClick={() => this.props.app.goToIndex()}>
-          { "" && <span dangerouslySetInnerHTML={ { __html: octicons["chevron-left"].toSVG() } } />}
-          back
-        </span>
-        <div className='text-center'>{ this.props.title }</div>
-      </div>
+            <div className="panel-heading">
+                <Link className='backbutton' to="/checkout">
+                    { "" && <span dangerouslySetInnerHTML={ { __html: octicons["chevron-left"].toSVG() } } />}
+                    back
+                </Link>
+                <div className='text-center'>{ this.props.title }</div>
+            </div>
         );
     }
 });
