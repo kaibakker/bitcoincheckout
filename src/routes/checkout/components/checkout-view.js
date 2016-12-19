@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import App from "components/App";
 import PaymentRequest from "../../../components/PaymentRequest"
 
 export default ({ children }) => {
@@ -9,7 +8,6 @@ export default ({ children }) => {
             <PaymentRequest />
 
             { children }
-
         </div>
     );
 };
