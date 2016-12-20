@@ -8,7 +8,7 @@ var HandlerPanel = React.createClass({
     registerProtocolHandler() {
         navigator.registerProtocolHandler("bitcoin", "index.html?%s", "Bitcoin handler");
     },
-    render(){
+    render() {
         return (
             <div className="panel panel-default panel-checkout">
                 <CardHeader title='Bitcoin payment URLs' />
@@ -33,7 +33,7 @@ var HandlerPanel = React.createClass({
                 <a href="bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit" className="list-group-item">
                     Send us a testnet bitcoin donation
                 </a>
-                
+
                 <a href="bitcoin:124xXJsB7NtjQ8VZEHuTb6aVjb6WjTGjyB?amount=0.03&message=reddit" className="list-group-item">
                     Send us a bitcoin donation
                 </a>

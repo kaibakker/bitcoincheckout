@@ -10,6 +10,8 @@ var CardHeader = require(".././CardHeader");
 
 var ListGroupItem = require("./../ListGroupItem");
 
+import makeRequestFromProtocolURI from "utils/get-request-object";
+
 var ShapeShiftPanel = React.createClass({
     getInitialState() {
         return { coins: [
@@ -56,38 +58,35 @@ var ShapeShiftPanel = React.createClass({
     },
 
     componentWillMount() {
-        // this.getMarkets();
+        this.getMarkets();
     },
 
     getMarkets() {
         var self = this;
         fetch("https://shapeshift.io/getcoins")
 		.then(function(response) {
-    if (response.status !== 200) {
-        return;
-    }
+            return response.json();
+        }).then(function(json) {
+            delete json["BTC"];
 
-			// Examine the text in the response
-    response.json().then(function(data) {
-        delete data["BTC"];
+            var coins = json.filter(function(coin) {
+                return (self.state.coins[coin].status == "available");
+            }).values()
 
-        self.setState({ coins:
-                  data.filter(function(coin) {
-                      return (self.state.coins[coin].status == "available");
-                  }).values()
-        });
-    });
-});
+            self.setState({ coins: coins });
+        })
     },
 
     redirectToShapeShift(currency) {
+        var request = makeRequestFromProtocolURI()
+
         var myInit = {
             method: "POST",
             body: JSON.stringify({
-    		withdrawalAmount: this.props.request.amount,
-    		withdrawal: this.props.request.address,
+        		withdrawalAmount: request.amount,
+        		withdrawal: request.address,
                 pair: currency.toLowerCase() + "_btc"
-    	}),
+        	}),
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -99,16 +98,11 @@ var ShapeShiftPanel = React.createClass({
 
         fetch("https://cors.shapeshift.io/sendamount", myInit)
         .then(function(response) {
-            if (response.status !== 200) {
-                return;
-            }
+            return response.json()
+        }).then(function(json) {
+            var url = "https://shapeshift.io/#/status/" + json.success.orderId;
 
-            response.json().then(function(data) {
-
-                var url = "https://shapeshift.io/#/status/" + data.success.orderId;
-
-                window.location.href = url;
-            });
+            window.location.href = url;
         });
     },
 
