@@ -8,7 +8,6 @@ import CoinbasePanel from "components/checkout/CoinbasePanel"
 import makeRequestFromProtocolURI from "utils/get-request-object";
 
 function requireRequest(nextState, replace) {
-    console.log(makeRequestFromProtocolURI().amount == undefined)
     if (makeRequestFromProtocolURI().amount == undefined) {
         replace({
             pathname: '/create',
