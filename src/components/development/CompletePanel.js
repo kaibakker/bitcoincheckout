@@ -11,7 +11,7 @@ var CompletePanel = React.createClass({
                 <div className="list-group-item">
                     <p>Thanks for shoping with us</p>
 
-                    <a href={ this.props.request.redirect_to_success } className="btn btn-info">
+                    <a href={ this.props.request.success_url } className="btn btn-info">
                         finish payment
                     </a>
                 </div>
